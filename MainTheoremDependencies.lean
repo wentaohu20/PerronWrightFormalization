@@ -194,6 +194,19 @@ run_cmd do
   ]
   liftIO <| IO.FS.createDirAll ".verification"
   liftIO <| IO.FS.writeFile ".verification/main-theorem-dependencies.json" report.compress
+  -- A compact, ASCII-only console summary; detailed records remain in the JSON/log.
+  let axiomOrder := #["propext", "Classical.choice", "Quot.sound"]
+  let mut axiomSummary := ""
+  for group in paperMainTheorems do
+    let mut used : Array String := #[]
+    for r in results do
+      if group.declarations.any (fun n => n.toString == r.name) then
+        for ax in r.axioms do
+          if !used.contains ax then used := used.push ax
+    let actual := axiomOrder.filter (fun ax => used.contains ax)
+    axiomSummary := axiomSummary ++
+      s!"THEOREM {group.number} AXIOMS: [{String.intercalate ", " actual.toList}]\n"
+  liftIO <| IO.FS.writeFile ".verification/main-theorem-axioms.txt" axiomSummary
   let mut md := "# Definitions reachable from the four paper main theorems and their supporting results\n\n"
   md := md ++ "Generated from checked Lean expressions by `MainTheoremDependencies.lean`.\n"
   md := md ++ "Paper main theorems: 3.6, 3.8, 3.9 and 3.10; 17 distinct implementation declarations and four supporting declarations.\n"

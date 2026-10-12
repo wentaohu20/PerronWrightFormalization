@@ -22,7 +22,9 @@ On Linux/macOS:
 bash verify.sh
 ```
 
-The entry fetches the pinned mathlib cache, builds the proof library, and prints the four paper-theorem groups followed by the actual theorem dependencies and axiom dependencies of their Lean declarations. It reads checked proof expressions, traverses definitions as well as theorem bodies, and exports the complete transitive graph. It does not substitute module imports or `#print axioms` alone for theorem dependencies. Failures return a nonzero exit code.
+The entry fetches the pinned mathlib cache, builds the proof library, and prints **only four axiom summaries**, one each for Theorems 3.6, 3.8, 3.9, and 3.10. Each summary is the union of the actual axiom dependencies of that paper theorem's Lean implementations. Build output, internal `#print axioms` messages, and per-declaration dependency details go to UTF-8 log files rather than filling the console. The Windows entry sets UTF-8 explicitly, including for Windows PowerShell 5.
+
+The inspector reads checked proof expressions, traverses definitions as well as theorem bodies, and exports the complete transitive graph. Reducing console output does not reduce the audit's coverage. Failures return a nonzero exit code and identify the relevant log.
 
 For the three additional axiom audits:
 
@@ -45,6 +47,7 @@ Local outputs are written to `.verification/` and are not committed:
 | Output | Contents |
 | --- | --- |
 | `build.log` | Complete build output |
+| `main-theorem-axioms.txt` | Four compact axiom summaries, matching the console output |
 | `main-theorem-dependencies.log` | Paper numbering, declaration roles, direct proof-theorem dependencies, transitive project-theorem counts, and axioms |
 | `main-theorem-dependencies.json` | Schema v2: four paper-theorem groups, declaration-to-paper mappings, statements, direct type/proof constants, the full transitive graph, and source locations |
 | `main-theorem-definitions.md` | All reachable project definitions, including generated helpers and private declarations |

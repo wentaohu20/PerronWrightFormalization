@@ -29,7 +29,22 @@ The pinned dependencies and cache were already available locally, so these runs 
 | Build and audit diagnostics | No Lean errors or warnings found |
 | Generated definition locations | Lean's one-based identifier positions are used; density, finite-model, and compact-terminal locations were checked against the source |
 
-The latest successful entry printed:
+## Compact console output and Windows encoding
+
+The updated `verify.cmd -SkipCache` entry (PowerShell 7) and a full `powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./Verify.ps1 -SkipCache` run (Windows PowerShell 5) both returned exit code `0` with exactly four axiom-summary rows:
+
+```text
+THEOREM 3.6 AXIOMS: [propext, Classical.choice, Quot.sound]
+THEOREM 3.8 AXIOMS: [propext, Classical.choice, Quot.sound]
+THEOREM 3.9 AXIOMS: [propext, Classical.choice, Quot.sound]
+THEOREM 3.10 AXIOMS: [propext, Classical.choice, Quot.sound]
+```
+
+Each row is computed from the actual dependencies of that paper theorem's implementations, not copied from the allowed-axiom list. The detailed 21-declaration checks and dependency graph remain in the UTF-8 logs and JSON. The compact summary is also saved to `.verification/main-theorem-axioms.txt`, and the Windows entry checks it against the JSON before printing success.
+
+UTF-8 log decoding was checked without replacement characters. Both PowerShell 5 and PowerShell 7 passed output-handler tests for successful native stderr, nonzero native exit, script error, warning diagnostic, and terminating script error; failure cases retained their logs. PowerShell 5 also successfully parsed the actual approximately 170 MB UTF-8 JSON report, with four paper groups, 21 checked targets, and 88,559 reachable declarations. Bash entry syntax passed; full Linux/macOS execution is still not claimed.
+
+The detailed audit log still records the full coverage:
 
 ```text
 AUDIT COVERAGE: 4 paper main theorems; 17 distinct implementation declarations; 4 supporting declarations.
