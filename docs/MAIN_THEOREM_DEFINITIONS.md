@@ -1,6 +1,7 @@
-# All project definitions reachable from the main theorems
+# Definitions reachable from the four paper main theorems and their supporting results
 
 Generated from checked Lean expressions by `MainTheoremDependencies.lean`.
+Paper main theorems: 3.6, 3.8, 3.9 and 3.10; 17 distinct implementation declarations and four supporting declarations.
 This includes type and proof dependencies, generated helpers and private declarations.
 Mathlib/Lean declarations remain in the full JSON report, not in this project-only index.
 

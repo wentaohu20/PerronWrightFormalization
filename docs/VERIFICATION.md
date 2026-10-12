@@ -1,29 +1,41 @@
-# 可复现验证记录
+# Reproducible verification record
 
-验证日期：2026-10-12（Asia/Shanghai）。这是一次实际运行记录；重新验证请使用仓库根目录的一键入口，而不是仅阅读本页。
+Verification date: 2026-10-12 (Asia/Shanghai). This page records actual local runs. To verify a checkout, use the repository's one-command entry rather than relying on this record.
 
-## 实际运行
+## Actual runs
 
 ```powershell
 .\Verify.ps1 -SkipCache -FullAudit
 .\verify.cmd -SkipCache
 ```
 
-两次均返回退出码 `0`。本机已有固定依赖和缓存，因此测试时使用 `-SkipCache`；首次克隆应使用默认入口获取缓存。另已检查 PowerShell 和 Bash 入口语法，未声称在 Linux/macOS 上完成同样的运行测试。
+Both entries returned exit code `0`. After correcting the paper-to-Lean mapping, `verify.cmd -SkipCache` was run again and returned `0`, printing the four paper-theorem groups and checking all 21 distinct Lean audit targets. The mathematical sources were unchanged by that correction.
 
-## 结果
+The pinned dependencies and cache were already available locally, so these runs used `-SkipCache`. The default cache-fetching step was also checked successfully. A fresh clone should normally use the default entry. PowerShell and Bash entry syntax was checked; a full Linux/macOS execution is not claimed.
 
-| 项目 | 本次结果 |
+## Results
+
+| Item | Observed result |
 | --- | --- |
-| 数学证明源码 | 1,663 个 `PerronWright/` 下的 Lean 文件全部纳入仓库 |
-| 完整构建 | `Build completed successfully (5356 jobs).` |
-| 公共主定理入口 | 21 个，逐个读到实际证明表达式并打印直接证明定理依赖 |
-| 类型与证明的传递常量闭包 | 88,559 个声明；没有未知、无法检查的节点 |
-| 公理 | 仅 `propext`、`Classical.choice`、`Quot.sound`；未发现非标准公理 |
-| 扩展审计 | `Audit.lean`、`ProbabilityAudit.lean`、`Chapter3FiniteProcessSpatialBridgeAudit.lean` 全部成功 |
-| 构建及审计诊断 | 未发现 Lean 错误或警告 |
-| 自动生成的定义位置 | 使用 Lean 从 1 开始的标识符位置；抽检密度、有限模型和紧致终端的行号与源码一致 |
+| Mathematical proof sources | All 1,663 Lean files under `PerronWright/` are included |
+| Full build | `Build completed successfully (5356 jobs).` |
+| Paper main theorems | **Four: Theorems 3.6, 3.8, 3.9, and 3.10** |
+| Distinct implementation/specialization declarations | 17: two for 3.6, fourteen for 3.8, and one joint terminal for both 3.9 and 3.10 |
+| Supporting declarations | Four Brownian factorial-density and determinacy results; not additional main theorems |
+| Checked Lean audit targets | 21 in total; actual checked proof expressions were read and direct proof-theorem dependencies printed |
+| Transitive closure of type and proof constants | 88,559 declarations; no unknown or uninspectable nodes |
+| Axioms | Only `propext`, `Classical.choice`, and `Quot.sound`; no nonstandard axioms found |
+| Additional audits | `Audit.lean`, `ProbabilityAudit.lean`, and `Chapter3FiniteProcessSpatialBridgeAudit.lean` all passed |
+| Build and audit diagnostics | No Lean errors or warnings found |
+| Generated definition locations | Lean's one-based identifier positions are used; density, finite-model, and compact-terminal locations were checked against the source |
 
-完整本地输出在 `.verification/` 中。170 MB 左右的完整 JSON 依赖图和编译缓存不纳入 Git；较小的项目定义索引保存在 [MAIN_THEOREM_DEFINITIONS.md](MAIN_THEOREM_DEFINITIONS.md)。验证器会重新生成报告，不接受上次失败运行留下的旧 JSON。
+The latest successful entry printed:
 
-该记录不是对数学定理假设的替代。特别是紧致概率分支的 `QP`、有限模型的人数误差和可数原始图源的谱漂移条件，请阅读 [README](../README.md) 及其链接中的完整 Lean 陈述。
+```text
+AUDIT COVERAGE: 4 paper main theorems; 17 distinct implementation declarations; 4 supporting declarations.
+DEPENDENCY AUDIT PASSED: 4 paper main theorems; 21 audited Lean declarations (17 implementation + 4 supporting); 88559 reachable constants. Reports: .verification/
+```
+
+Complete local outputs are in `.verification/`. The full JSON dependency graph (approximately 170 MB) and compilation caches are not committed. The smaller project-definition index is preserved in [MAIN_THEOREM_DEFINITIONS.md](MAIN_THEOREM_DEFINITIONS.md). JSON schema v2 records the four paper groups, each declaration's role, and its paper theorem number(s); the shared countable terminal belongs to both 3.9 and 3.10 and is inspected only once. Verification regenerates the reports and cannot accept stale JSON from a previous failed run.
+
+This record does not replace the hypotheses in the theorem statements. In particular, consult the [README](../README.md) and linked Lean statements for the compact probabilistic `QP` assumption, finite type-count errors, and the empirical spectral-drift condition for the unnormalized countable source.

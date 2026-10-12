@@ -26,11 +26,11 @@ rm -f .verification/main-theorem-dependencies.json
 lake env lean MainTheoremDependencies.lean 2>&1 | tee .verification/main-theorem-dependencies.log
 check_diagnostics .verification/main-theorem-dependencies.log
 test -s .verification/main-theorem-dependencies.json
-grep -q '^DEPENDENCY AUDIT PASSED: 21 main theorems;' .verification/main-theorem-dependencies.log
+grep -q '^DEPENDENCY AUDIT PASSED: 4 paper main theorems; 21 audited Lean declarations (17 implementation + 4 supporting);' .verification/main-theorem-dependencies.log
 if [[ "${FULL_AUDIT:-0}" == 1 ]]; then
   for audit in Audit.lean ProbabilityAudit.lean Chapter3FiniteProcessSpatialBridgeAudit.lean; do
     lake env lean "$audit" 2>&1 | tee ".verification/$audit.log"
     check_diagnostics ".verification/$audit.log"
   done
 fi
-echo 'VERIFIED: 21 main theorem declarations. Reports: .verification/'
+echo 'VERIFIED: paper Theorems 3.6, 3.8, 3.9 and 3.10; 17 implementation + 4 supporting Lean declarations. Reports: .verification/'

@@ -1,196 +1,196 @@
-# 可数类型：主定理、定义与准确范围
+# Theorems 3.9 and 3.10: countable types, definitions, and exact scope
 
-本页索引可数临界实现及不做谱归一化时的两个主结果。所有链接指向本仓库的 Lean 源码；这里只解释声明的含义，不记录运行测试状态。
+This page indexes **Theorem 3.9 (Countable type critical realization)** and **Theorem 3.10 (Countable type limits without spectral renormalization)**. The former constructs a spectrally normalized critical realization; the latter treats the same realization without spectral renormalization, subject to a spectral-drift condition. All links point to this repository's Lean sources. This page explains their statements, rather than recording verification results.
 
-## 公共主定理入口
+## Joint Lean entry for Theorems 3.9 and 3.10
 
-完整声明名：
+Fully qualified declaration:
 
 ```text
 PerronWright.CountableActualBrownianLimits.exists_actual_growing_Brownian_global_and_TV_window_limits
 ```
 
-位置：[CountableActualBrownianLimits.lean，第 90 行](../PerronWright/Probability/CountableActualBrownianLimits.lean#L90)。两个结果由这个联合定理给出，不是分别选择两套整数实现。
+Location: [CountableActualBrownianLimits.lean, line 90](../PerronWright/Probability/CountableActualBrownianLimits.lean#L90). This joint theorem supplies both paper results using the same integer realization, not two separately chosen realizations.
 
-模型输入是 `M : CountableKernel` 与 `hM : M.IsRegularCritical`，以及 `0 < lower`、`lower ≤ M.kernel s t` 的下界见证。该见证已经包含在正则临界性中，并非额外模型假设。定理前的 [`omit level hlocal in`](../PerronWright/Probability/CountableActualBrownianLimits.lean#L86) 表明：支撑序列由结论构造，局部极限估计不是外部假设。
+Its model inputs are `M : CountableKernel`, `hM : M.IsRegularCritical`, and witnesses of `0 < lower` and `lower ≤ M.kernel s t`. Such a lower bound is already part of regular criticality; the witness is not an additional model assumption. The preceding [`omit level hlocal in`](../PerronWright/Probability/CountableActualBrownianLimits.lean#L86) makes explicit that the support sequence is constructed in the conclusion and that the local-limit estimates are not external assumptions.
 
-### 同一个最外层 `∃ level` 覆盖什么
+### What the same outermost `∃ level` provides
 
-| 联合结论 | 主定理中的位置 |
+| Joint conclusion | Location in the theorem |
 | --- | --- |
-| `level` 单调、趋于无穷、`level N ≤ N`；每个 `N` 的人数之和恰为 `N`，且 `N>0` 时各保留类型人数严格为正 | [第 91 行](../PerronWright/Probability/CountableActualBrownianLimits.lean#L91) |
-| 实际经验概率测度在原子绝对变差中趋于原始 `μ`；`N^(1/3)` 乘各保留类型经验比例的最小值趋于无穷 | [第 97 行](../PerronWright/Probability/CountableActualBrownianLimits.lean#L97) |
-| 谱归一化图源的局部阶乘期望趋于原始 `α,β` 的密度；对每个固定阶数、surplus 上界、正大小窗口和有界临界参数区间一致 | [第 104 行](../PerronWright/Probability/CountableActualBrownianLimits.lean#L104) |
-| 在实际经验谱漂移假设下，同一原始图源的局部期望趋于参数 `λ+θ` 的密度 | [第 110 行](../PerronWright/Probability/CountableActualBrownianLimits.lean#L110) |
-| 谱归一化 starred 全局无标记图法则趋于实际 Brownian 全 excursion 法则 | [第 120 行](../PerronWright/Probability/CountableActualBrownianLimits.lean#L120) |
-| 谱漂移假设下，同一原始 starred 全局无标记图法则趋于相应 Brownian 法则 | [第 124 行](../PerronWright/Probability/CountableActualBrownianLimits.lean#L124) |
-| 每个正闭大小–有界 surplus 窗口上的谱归一化 starred 无标记法则与实际经验 TV 标记法则收敛 | [第 131 行](../PerronWright/Probability/CountableActualBrownianLimits.lean#L131) |
-| 谱漂移假设下，同一原始 starred 无标记及经验 TV 标记窗口法则收敛 | [第 139 行](../PerronWright/Probability/CountableActualBrownianLimits.lean#L139) |
-| 谱归一化模型在窗口内的标记距离总和期望及坏标记概率趋于零 | [第 150 行](../PerronWright/Probability/CountableActualBrownianLimits.lean#L150) |
-| 谱漂移假设下，原始模型的相应标记距离期望及坏标记概率趋于零 | [第 155 行](../PerronWright/Probability/CountableActualBrownianLimits.lean#L155) |
+| `level` is monotone, tends to infinity, and satisfies `level N ≤ N`; the counts sum exactly to `N`, and every retained type has a strictly positive count when `N>0` | [Line 91](../PerronWright/Probability/CountableActualBrownianLimits.lean#L91) |
+| The actual empirical probability measures converge to the original `μ` in atomic absolute variation; `N^(1/3)` times the smallest retained empirical type proportion tends to infinity | [Line 97](../PerronWright/Probability/CountableActualBrownianLimits.lean#L97) |
+| Local factorial expectations of the spectrally normalized graph source converge to the density with the original `α,β`, uniformly for each fixed order, surplus bound, positive size window, and bounded critical-parameter interval | [Line 104](../PerronWright/Probability/CountableActualBrownianLimits.lean#L104) |
+| Under the actual empirical spectral-drift condition, local expectations of the same raw graph source converge to the density at parameter `λ+θ` | [Line 110](../PerronWright/Probability/CountableActualBrownianLimits.lean#L110) |
+| Spectrally normalized starred global unmarked graph laws converge to the actual full-excursion Brownian law | [Line 120](../PerronWright/Probability/CountableActualBrownianLimits.lean#L120) |
+| Under the spectral-drift condition, the same raw starred global unmarked graph laws converge to the corresponding Brownian law | [Line 124](../PerronWright/Probability/CountableActualBrownianLimits.lean#L124) |
+| Spectrally normalized starred unmarked laws and actual empirical-TV-marked laws converge on every positive closed size window with bounded surplus | [Line 131](../PerronWright/Probability/CountableActualBrownianLimits.lean#L131) |
+| Under the spectral-drift condition, the same raw starred unmarked and empirical-TV-marked window laws converge | [Line 139](../PerronWright/Probability/CountableActualBrownianLimits.lean#L139) |
+| For the normalized model, the expected sum of mark distances in a window and the probability of a bad mark tend to zero | [Line 150](../PerronWright/Probability/CountableActualBrownianLimits.lean#L150) |
+| Under the spectral-drift condition, the corresponding expected mark distance and bad-mark probability for the raw model tend to zero | [Line 155](../PerronWright/Probability/CountableActualBrownianLimits.lean#L155) |
 
-`∃ level` 在所有 `λ`、`θ`、阶数及窗口参数之前。因此这些结论使用同一个顶点类型赋值、同一个正整数人数构造和同一个穷尽支撑，而不是逐参数重新选取实现。
+The quantifier `∃ level` precedes every `λ`, `θ`, factorial order, and window parameter. Thus all conclusions use the same vertex-type assignment, positive integer-count construction, and exhausting support sequence, without selecting a new realization for each parameter.
 
-### 索引、谱漂移与 starred 参数
+### Indexing, spectral drift, and the starred parameter
 
-图序列的 Lean 索引为 `n`，实际顶点数为 `N = n+1`。支撑是 `{0,…,level N}`，实际谱半径记为 `σ_n = M.empiricalSpectralRadius level n`。
+The Lean graph-sequence index is `n`; the actual number of vertices is `N = n+1`. The support is `{0,…,level N}`, and its actual spectral radius is `σ_n = M.empiricalSpectralRadius level n`.
 
-原始图分支的前提严格是：
+The raw graph branch requires precisely:
 
 ```text
 (n+1)^(1/3) * (M.empiricalSpectralRadius level n - 1) → θ.
 ```
 
-在该前提下，原始局部密度参数为 `λ+θ`。全局及窗口 starred 极限的实际 Brownian 参数为：
+Under this condition, the raw local-density parameter is `λ+θ`. The actual Brownian parameter of the global and window starred limits is:
 
 ```text
-谱归一化： α * β^(-2/3) * λ
-原始图源： α * β^(-2/3) * (λ+θ)
+Spectrally normalized source: α * β^(-2/3) * λ
+Raw graph source:             α * β^(-2/3) * (λ+θ)
 ```
 
-这里的 `θ` 在比例因子内部。原始谱漂移条件是针对实际经验核的条件，不是针对另选的近似谱根；主定理也没有声称仅靠正则临界性自动得到任意 `θ` 或零漂移。零漂移结果是上述条件分支的 `θ=0` 特例。
+The shift `θ` is inside the scaling factor. This condition concerns the actual empirical kernel, not a separately chosen approximate spectral root. Regular criticality alone is not asserted to imply an arbitrary prescribed drift or zero drift. The zero-drift result is the `θ=0` specialization of this conditional branch.
 
-starred 大小坐标用原始可数模型的 `β^(1/3)` 乘 `|C|/N^(2/3)`，surplus 与实际经验类型标记不变；不是用每个经验有限模型自身的 `β_n` 来替换原始 `β`。
+The starred size coordinate multiplies `|C|/N^(2/3)` by the original countable model's `β^(1/3)`; surplus and actual empirical type marks are unchanged. The original `β` is not replaced by each empirical finite model's own `β_n`.
 
-### 拓扑和窗口范围
+### Topology and window scope
 
-- 全局结论只有**无标记**法则：底空间为 `(0,∞) × ℕ`，局部有限整数点测度带 vague 拓扑，再讨论其概率法则的弱收敛。
-- 标记结论是局部窗口上的概率法则弱收敛。窗口是闭集 `[a,b] × {0,…,R}`，条件为 `0<a≤b`，包含两端点；公共主定理没有要求用户额外提供边界零质量证明。
-- 标记底空间是该窗口与 `VariationMark` 的乘积；后者的距离是 `Σ_s |p{s}-q{s}|`，即通常采用 `sup_A |p(A)-q(A)|` 的 TV 约定的两倍。
-- “TV 标记极限”表示使用这个总变差标记拓扑，不表示整个点过程概率法则之间按总变差收敛，也不宣称全局 TV-product 标记点过程极限。
-- 目标标记法则由无标记 Brownian 窗口法则添加原始 Perron 常标记而成；有限图源仍然使用每个实际组件自身的经验标记。
+- The global conclusions concern **unmarked** laws only. The base space is `(0,∞) × ℕ`; locally finite integer point measures carry the vague topology, and their probability laws converge weakly.
+- The marked conclusions are weak convergence of probability laws on local windows. The closed window is `[a,b] × {0,…,R}`, with `0<a≤b`, including both endpoints. The public theorem does not ask the user to supply an additional boundary-null proof.
+- The marked base space is the product of this window with `VariationMark`. Its mark distance is `Σ_s |p{s}-q{s}|`, twice the total-variation distance under the convention `sup_A |p(A)-q(A)|`.
+- A “TV-marked limit” refers to this total-variation topology on marks. It does not mean total-variation convergence of the entire point-process probability laws, and it does not assert a global TV-product marked point-process limit.
+- The target marked law adds the original constant Perron mark to the unmarked Brownian window law. The finite graph sources still use each actual component's own empirical mark.
 
-## 一、模型假设与原始 Perron 量
+## 1. Model assumptions and original Perron quantities
 
-| 含义 | 完整 Lean 声明名与位置 |
+| Meaning | Fully qualified Lean declaration and location |
 | --- | --- |
-| 类型空间 `ℕ`；每个类型原子为正的概率测度 `μ`；有界、对称、非负核 `κ` | [`PerronWright.CountableKernel`](../PerronWright/Model/CountableKernel.lean#L19) |
-| 原始 `L²(μ)` 空间 | [`PerronWright.CountableKernel.L2`](../PerronWright/Kernel/CountableIntegral.lean#L21) |
-| 积分核点值作用 `∫ κ(a,b)v(b) dμ(b)` | [`PerronWright.CountableKernel.pointwiseAction`](../PerronWright/Kernel/CountableIntegral.lean#L54) |
-| 该作用对应的连续线性算子 | [`PerronWright.CountableKernel.actionCLM`](../PerronWright/Kernel/CountableIntegral.lean#L106) |
-| 临界性：原始算子的谱半径等于一 | [`PerronWright.CountableKernel.IsCritical`](../PerronWright/Kernel/CountablePerron.lean#L19) |
-| 正则临界性：临界性加核的统一严格正下界 | [`PerronWright.CountableKernel.IsRegularCritical`](../PerronWright/Model/CountablePerronQuantities.lean#L18) |
-| 规范化正 Perron 固定向量的存在唯一性 | [`PerronWright.CountableKernel.IsRegularCritical.existsUnique_normalized_positive_fixed`](../PerronWright/Model/CountablePerronQuantities.lean#L21) |
-| 从存在唯一性定理选出的规范化正向量 `u` | [`PerronWright.CountableKernel.perronVector`](../PerronWright/Model/CountablePerronQuantities.lean#L27) |
+| Type space `ℕ`, probability measure `μ` with every atomic mass positive, and bounded symmetric nonnegative kernel `κ` | [`PerronWright.CountableKernel`](../PerronWright/Model/CountableKernel.lean#L19) |
+| Original `L²(μ)` space | [`PerronWright.CountableKernel.L2`](../PerronWright/Kernel/CountableIntegral.lean#L21) |
+| Pointwise integral-kernel action `∫ κ(a,b)v(b) dμ(b)` | [`PerronWright.CountableKernel.pointwiseAction`](../PerronWright/Kernel/CountableIntegral.lean#L54) |
+| Corresponding continuous linear operator | [`PerronWright.CountableKernel.actionCLM`](../PerronWright/Kernel/CountableIntegral.lean#L106) |
+| Criticality: the original operator has spectral radius one | [`PerronWright.CountableKernel.IsCritical`](../PerronWright/Kernel/CountablePerron.lean#L19) |
+| Regular criticality: criticality together with a uniform strictly positive kernel lower bound | [`PerronWright.CountableKernel.IsRegularCritical`](../PerronWright/Model/CountablePerronQuantities.lean#L18) |
+| Existence and uniqueness of a normalized positive Perron fixed vector | [`PerronWright.CountableKernel.IsRegularCritical.existsUnique_normalized_positive_fixed`](../PerronWright/Model/CountablePerronQuantities.lean#L21) |
+| Normalized positive vector `u` selected from that existence-and-uniqueness theorem | [`PerronWright.CountableKernel.perronVector`](../PerronWright/Model/CountablePerronQuantities.lean#L27) |
 | `u>0` | [`PerronWright.CountableKernel.perronVector_pos`](../PerronWright/Model/CountablePerronQuantities.lean#L30) |
 | `Ku=u` | [`PerronWright.CountableKernel.perronVector_fixed`](../PerronWright/Model/CountablePerronQuantities.lean#L34) |
 | `∫u dμ=1` | [`PerronWright.CountableKernel.perronVector_integral`](../PerronWright/Model/CountablePerronQuantities.lean#L38) |
-| 以 `u` 为密度的 Perron 概率测度 `u·μ` | [`PerronWright.CountableKernel.perronLaw`](../PerronWright/Model/CountablePerronQuantities.lean#L52) |
-| 二次尺度 `α=∫u² dμ` | [`PerronWright.CountableKernel.alpha`](../PerronWright/Model/CountablePerronQuantities.lean#L92) |
-| 三次尺度 `β=∫u³ dμ` | [`PerronWright.CountableKernel.beta`](../PerronWright/Model/CountablePerronQuantities.lean#L95) |
+| Perron probability measure `u·μ`, with density `u` | [`PerronWright.CountableKernel.perronLaw`](../PerronWright/Model/CountablePerronQuantities.lean#L52) |
+| Quadratic scale `α=∫u² dμ` | [`PerronWright.CountableKernel.alpha`](../PerronWright/Model/CountablePerronQuantities.lean#L92) |
+| Cubic scale `β=∫u³ dμ` | [`PerronWright.CountableKernel.beta`](../PerronWright/Model/CountablePerronQuantities.lean#L95) |
 
-## 二、增长支撑、整数人数与经验谱根
+## 2. Growing supports, integer counts, and empirical spectral roots
 
-人数构造先在初始支撑 `{0,…,m}` 上规范化原始权重，然后取整；全部取整余数放在类型 `0`。实际顶点赋值实现这些人数，不仅仅给出一组实数权重。主定理在 `N>0` 时断言严格正人数与经验概率性质；`N=0` 时不要求经验测度是概率测度。
+The count construction first normalizes the original weights on the initial support `{0,…,m}`, then rounds them. All rounding remainder is assigned to type `0`. The actual vertex assignment realizes these counts, rather than merely supplying real-valued weights. The theorem asserts positive counts and an empirical probability measure for `N>0`; it does not require the empirical measure to be a probability measure at `N=0`.
 
-| 含义 | 完整 Lean 声明名与位置 |
+| Meaning | Fully qualified Lean declaration and location |
 | --- | --- |
-| 原始原子权重 `w(a)=μ.real {a}` | [`PerronWright.CountableTypeRealization.weights`](../PerronWright/Probability/CountableTypeRealization.lean#L28) |
-| 截断质量 `Σ_{a≤m} w(a)` | [`PerronWright.GrowingTypeCounts.mass`](../PerronWright/Probability/GrowingTypeCounts.lean#L23) |
-| 规范化截断分布 `w(a)/mass(w,m)` | [`PerronWright.GrowingTypeCounts.truncatedLaw`](../PerronWright/Probability/GrowingTypeCounts.lean#L46) |
-| 有限类型取整人数及余数处理 | [`PerronWright.FiniteTypeCounts.counts`](../PerronWright/Model/FiniteTypeCounts.lean#L32) |
-| 和恰为 `N` 的截断整数人数 | [`PerronWright.GrowingTypeCounts.truncatedCounts`](../PerronWright/Probability/GrowingTypeCounts.lean#L57) |
-| 这些人数除以 `N` 得到的有限经验频率 | [`PerronWright.GrowingTypeCounts.empiricalLaw`](../PerronWright/Probability/GrowingTypeCounts.lean#L60) |
-| 支撑 `{0,…,level N}` | [`PerronWright.GrowingTypeCounts.support`](../PerronWright/Probability/GrowingTypeCounts.lean#L137) |
-| 每个实际顶点的自然数类型 | [`PerronWright.CountableTypeRealization.vertexTypes`](../PerronWright/Probability/CountableTypeRealization.lean#L30) |
-| 顶点类型的实际经验测度 | [`PerronWright.CountableTypeRealization.empiricalMeasure`](../PerronWright/Probability/CountableTypeRealization.lean#L65) |
-| 图索引 `n` 对应 `N=n+1` 时的经验原子权重 | [`PerronWright.CountableKernel.empiricalWeights`](../PerronWright/Kernel/CountableApproximationEmpirical.lean#L33) |
-| 经验权重对应的实际算子 | [`PerronWright.CountableKernel.empiricalOperator`](../PerronWright/Kernel/CountableApproximationEmpirical.lean#L51) |
-| 该算子的经验谱半径 `σ_n` | [`PerronWright.CountableKernel.empiricalSpectralRadius`](../PerronWright/Kernel/CountableApproximationEmpirical.lean#L55) |
-| 加权积分算子谱半径的实值构造 | [`PerronWright.CountableKernel.weightedSpectralRadius`](../PerronWright/Kernel/CountableApproximationSpectral.lean#L69) |
+| Original atomic weights `w(a)=μ.real {a}` | [`PerronWright.CountableTypeRealization.weights`](../PerronWright/Probability/CountableTypeRealization.lean#L28) |
+| Truncated mass `Σ_{a≤m} w(a)` | [`PerronWright.GrowingTypeCounts.mass`](../PerronWright/Probability/GrowingTypeCounts.lean#L23) |
+| Normalized truncated distribution `w(a)/mass(w,m)` | [`PerronWright.GrowingTypeCounts.truncatedLaw`](../PerronWright/Probability/GrowingTypeCounts.lean#L46) |
+| Rounded finite-type counts and remainder allocation | [`PerronWright.FiniteTypeCounts.counts`](../PerronWright/Model/FiniteTypeCounts.lean#L32) |
+| Truncated integer counts summing exactly to `N` | [`PerronWright.GrowingTypeCounts.truncatedCounts`](../PerronWright/Probability/GrowingTypeCounts.lean#L57) |
+| Finite empirical frequencies obtained by dividing these counts by `N` | [`PerronWright.GrowingTypeCounts.empiricalLaw`](../PerronWright/Probability/GrowingTypeCounts.lean#L60) |
+| Support `{0,…,level N}` | [`PerronWright.GrowingTypeCounts.support`](../PerronWright/Probability/GrowingTypeCounts.lean#L137) |
+| Natural-number type assigned to every actual vertex | [`PerronWright.CountableTypeRealization.vertexTypes`](../PerronWright/Probability/CountableTypeRealization.lean#L30) |
+| Actual empirical measure of vertex types | [`PerronWright.CountableTypeRealization.empiricalMeasure`](../PerronWright/Probability/CountableTypeRealization.lean#L65) |
+| Empirical atomic weights at graph index `n`, with `N=n+1` | [`PerronWright.CountableKernel.empiricalWeights`](../PerronWright/Kernel/CountableApproximationEmpirical.lean#L33) |
+| Actual operator associated with the empirical weights | [`PerronWright.CountableKernel.empiricalOperator`](../PerronWright/Kernel/CountableApproximationEmpirical.lean#L51) |
+| Empirical spectral radius `σ_n` of that operator | [`PerronWright.CountableKernel.empiricalSpectralRadius`](../PerronWright/Kernel/CountableApproximationEmpirical.lean#L55) |
+| Real-valued construction of the weighted integral operator's spectral radius | [`PerronWright.CountableKernel.weightedSpectralRadius`](../PerronWright/Kernel/CountableApproximationSpectral.lean#L69) |
 
-## 三、规范化与原始独立边图源
+## 3. Normalized and raw independent-edge graph sources
 
-令 `N=n+1`、`t_N=max(1+λN^(-1/3),0)`，并按上面的整数实现赋予顶点类型。对一条顶点类型为 `s,t` 的边：
+Set `N=n+1` and `t_N=max(1+λN^(-1/3),0)`, and assign vertex types using the integer realization above. For an edge whose endpoint types are `s,t`:
 
 ```text
-谱归一化 hazard： z = t_N * κ(s,t) / (N * σ_n)
-原始图 hazard：   z = t_N * κ(s,t) / N
-实际边概率：      1 - exp(-z)
+Spectrally normalized hazard: z = t_N * κ(s,t) / (N * σ_n)
+Raw graph hazard:             z = t_N * κ(s,t) / N
+Actual edge probability:      1 - exp(-z)
 ```
 
-这里 `z` 是 hazard，不是直接当作边概率。图法则是所有边的实际独立联合分布。有效参数把整个原始图法则精确改写为规范化法则，不仅改写某条边的边缘分布。
+Here `z` is a hazard, not itself the edge probability. The graph law is the actual independent joint law of all edges. The effective parameter rewrites the entire raw graph law exactly as a normalized law, not merely the marginal distribution of one edge.
 
-| 含义 | 完整 Lean 声明名与位置 |
+| Meaning | Fully qualified Lean declaration and location |
 | --- | --- |
-| 临界时间 `t_N`；截断只用于避免小图尺寸的负时间 | [`PerronWright.CriticalScaling.time`](../PerronWright/Probability/CriticalScaling.lean#L24) |
-| 给定 hazard 的单边 Boolean 概率质量 | [`PerronWright.IndependentEdges.edgeMass`](../PerronWright/Probability/IndependentEdges.lean#L25) |
-| 实际带标签独立边图法则 | [`PerronWright.FixedTypeGraph.law`](../PerronWright/Probability/FixedTypeGraph.lean#L31) |
-| 谱归一化 hazards | [`PerronWright.CountableKernel.empiricalNormalizedHazards`](../PerronWright/Probability/CountableEmpiricalGraphLaw.lean#L25) |
-| 谱归一化实际图法则 | [`PerronWright.CountableKernel.empiricalNormalizedGraphLaw`](../PerronWright/Probability/CountableEmpiricalGraphLaw.lean#L41) |
-| 原始 hazards | [`PerronWright.CountableKernel.empiricalUnnormalizedHazards`](../PerronWright/Probability/CountableEmpiricalGraphLaw.lean#L66) |
-| 原始实际图法则 | [`PerronWright.CountableKernel.empiricalUnnormalizedGraphLaw`](../PerronWright/Probability/CountableEmpiricalGraphLaw.lean#L78) |
-| 有效参数 `N^(1/3)((1+λN^(-1/3))σ-1)` | [`PerronWright.CriticalParameterDrift.effectiveParameter`](../PerronWright/Probability/CriticalParameterDrift.lean#L22) |
-| 将实际经验谱根代入并按 `N=n+1` 重索引的有效参数 | [`PerronWright.CountableKernel.empiricalEffectiveParameter`](../PerronWright/Probability/CountableEmpiricalSpectralDrift.lean#L17) |
-| 原始与规范化的完整图法则等式 | [`PerronWright.CountableKernel.empiricalUnnormalizedGraphLaw_eq_normalized`](../PerronWright/Probability/CountableEmpiricalGraphLaw.lean#L90) |
+| Critical time `t_N`; truncation only prevents negative time at small graph sizes | [`PerronWright.CriticalScaling.time`](../PerronWright/Probability/CriticalScaling.lean#L24) |
+| Boolean probability mass of a single edge with a given hazard | [`PerronWright.IndependentEdges.edgeMass`](../PerronWright/Probability/IndependentEdges.lean#L25) |
+| Actual labelled independent-edge graph law | [`PerronWright.FixedTypeGraph.law`](../PerronWright/Probability/FixedTypeGraph.lean#L31) |
+| Spectrally normalized hazards | [`PerronWright.CountableKernel.empiricalNormalizedHazards`](../PerronWright/Probability/CountableEmpiricalGraphLaw.lean#L25) |
+| Spectrally normalized actual graph law | [`PerronWright.CountableKernel.empiricalNormalizedGraphLaw`](../PerronWright/Probability/CountableEmpiricalGraphLaw.lean#L41) |
+| Raw hazards | [`PerronWright.CountableKernel.empiricalUnnormalizedHazards`](../PerronWright/Probability/CountableEmpiricalGraphLaw.lean#L66) |
+| Raw actual graph law | [`PerronWright.CountableKernel.empiricalUnnormalizedGraphLaw`](../PerronWright/Probability/CountableEmpiricalGraphLaw.lean#L78) |
+| Effective parameter `N^(1/3)((1+λN^(-1/3))σ-1)` | [`PerronWright.CriticalParameterDrift.effectiveParameter`](../PerronWright/Probability/CriticalParameterDrift.lean#L22) |
+| Effective parameter using the actual empirical spectral root, reindexed by `N=n+1` | [`PerronWright.CountableKernel.empiricalEffectiveParameter`](../PerronWright/Probability/CountableEmpiricalSpectralDrift.lean#L17) |
+| Equality of the full raw and normalized graph laws | [`PerronWright.CountableKernel.empiricalUnnormalizedGraphLaw_eq_normalized`](../PerronWright/Probability/CountableEmpiricalGraphLaw.lean#L90) |
 
-## 四、局部数值期望与目标阶乘密度
+## 4. Local numerical expectations and target factorial density
 
-`q` 阶计数是有序且互不相同的实际连通组件元组数。第 `i` 个组件要求大小为 `⌊y_i N^(2/3)⌋₊`、surplus 为 `r_i`；surplus 按 `边数+1-顶点数` 定义。主定理中的局部量是 `N^(2q/3)` 乘这个计数的期望，分别在规范化或原始实际图法则下积分。
+The order-`q` count is the number of ordered, pairwise distinct tuples of actual connected components. Component `i` must have size `⌊y_i N^(2/3)⌋₊` and surplus `r_i`; surplus is `number of edges + 1 - number of vertices`. The local quantity in the theorem is `N^(2q/3)` times the expectation of this count, integrated against the normalized or raw actual graph law, respectively.
 
-| 含义 | 完整 Lean 声明名与位置 |
+| Meaning | Fully qualified Lean declaration and location |
 | --- | --- |
-| 实际组件大小 | [`PerronWright.ComponentCounts.componentSize`](../PerronWright/Probability/ComponentCounts.lean#L31) |
-| 实际组件 surplus | [`PerronWright.ComponentCounts.componentSurplus`](../PerronWright/Probability/ComponentCounts.lean#L35) |
-| 匹配大小与 surplus 的有序不同组件元组 | [`PerronWright.ComponentCounts.GoodComponentTuples`](../PerronWright/Probability/ComponentCounts.lean#L46) |
-| 元组的实际阶乘计数 | [`PerronWright.ComponentCounts.count`](../PerronWright/Probability/ComponentCounts.lean#L60) |
-| 真正取整的临界大小 | [`PerronWright.CriticalScaling.size`](../PerronWright/Probability/CriticalScaling.lean#L49) |
-| 规范化局部期望 | [`PerronWright.CountableKernel.growingLocalExpectation`](../PerronWright/Probability/CountableFixedSupportGrowingSource.lean#L32) |
-| 原始局部期望 | [`PerronWright.CountableKernel.growingUnnormalizedLocalExpectation`](../PerronWright/Probability/CountableUnnormalizedLocalTerminal.lean#L23) |
-| surplus 索引的 Wright 常数 | [`PerronWright.PerronWrightFormulaMainTerm.wrightConstant`](../PerronWright/Enumeration/PerronWrightFormulaMainTerm.lean#L25) |
-| 临界人口指数多项式 | [`PerronWright.FactorialDensity.criticalExponent`](../PerronWright/Probability/FactorialDensity.lean#L19) |
-| 单个 surplus 对应的大小因子 | [`PerronWright.FactorialDensity.sizeFactor`](../PerronWright/Probability/FactorialDensity.lean#L24) |
-| 目标有序 `q` 点阶乘密度 | [`PerronWright.FactorialDensity.density`](../PerronWright/Probability/FactorialDensity.lean#L29) |
+| Actual component size | [`PerronWright.ComponentCounts.componentSize`](../PerronWright/Probability/ComponentCounts.lean#L31) |
+| Actual component surplus | [`PerronWright.ComponentCounts.componentSurplus`](../PerronWright/Probability/ComponentCounts.lean#L35) |
+| Ordered distinct component tuples with matching sizes and surpluses | [`PerronWright.ComponentCounts.GoodComponentTuples`](../PerronWright/Probability/ComponentCounts.lean#L46) |
+| Actual factorial tuple count | [`PerronWright.ComponentCounts.count`](../PerronWright/Probability/ComponentCounts.lean#L60) |
+| Critical size with literal integer rounding | [`PerronWright.CriticalScaling.size`](../PerronWright/Probability/CriticalScaling.lean#L49) |
+| Normalized local expectation | [`PerronWright.CountableKernel.growingLocalExpectation`](../PerronWright/Probability/CountableFixedSupportGrowingSource.lean#L32) |
+| Raw local expectation | [`PerronWright.CountableKernel.growingUnnormalizedLocalExpectation`](../PerronWright/Probability/CountableUnnormalizedLocalTerminal.lean#L23) |
+| Surplus-indexed Wright constant | [`PerronWright.PerronWrightFormulaMainTerm.wrightConstant`](../PerronWright/Enumeration/PerronWrightFormulaMainTerm.lean#L25) |
+| Critical population exponent polynomial | [`PerronWright.FactorialDensity.criticalExponent`](../PerronWright/Probability/FactorialDensity.lean#L19) |
+| Size factor for a single surplus coordinate | [`PerronWright.FactorialDensity.sizeFactor`](../PerronWright/Probability/FactorialDensity.lean#L24) |
+| Target ordered `q`-point factorial density | [`PerronWright.FactorialDensity.density`](../PerronWright/Probability/FactorialDensity.lean#L29) |
 
-## 五、全局点测度、闭窗口与 starred 法则
+## 5. Global point measures, closed windows, and starred laws
 
-实际组件原子为 `(c * |C| / N^(2/3), surplus(C))`。每个组件贡献一个 Dirac 原子，保留重数；`c=1` 是未加 starred 尺度的坐标，`c=β^(1/3)` 是本定理的 starred 坐标。
+An actual component atom is `(c * |C| / N^(2/3), surplus(C))`. Every component contributes one Dirac atom, with multiplicity retained. The unstarred coordinate has `c=1`; the starred coordinate in this theorem has `c=β^(1/3)`.
 
-| 含义 | 完整 Lean 声明名与位置 |
+| Meaning | Fully qualified Lean declaration and location |
 | --- | --- |
-| 全局正大小–surplus 底空间 `(0,∞)×ℕ` | [`PerronWright.ComponentGlobalPointProcess.PositiveSizeSurplus`](../PerronWright/Probability/ComponentGlobalPointProcess.lean#L25) |
-| 局部有限且紧集上为有限整数原子和的性质 | [`PerronWright.LocallyFinitePointMeasureVague.IsLocallyFinitePointMeasure`](../PerronWright/Probability/LocallyFinitePointMeasureVague.lean#L25) |
-| 局部有限整数点测度空间 | [`PerronWright.LocallyFinitePointMeasureVague.LocalPointMeasure`](../PerronWright/Probability/LocallyFinitePointMeasureVague.lean#L29) |
-| 用紧支撑连续测试函数积分定义 vague 拓扑 | [`PerronWright.LocallyFinitePointMeasureVague.testEncoding`](../PerronWright/Probability/LocallyFinitePointMeasureVague.lean#L42)；[拓扑实例](../PerronWright/Probability/LocallyFinitePointMeasureVague.lean#L45) |
-| 有限整数点测度空间 | [`PerronWright.FinitePointMeasureCompact.PointMeasure`](../PerronWright/Probability/FinitePointMeasureCompact.lean#L33) |
-| 有限点测度的弱拓扑 | [`PerronWright.FinitePointMeasureCompact` 中的 `TopologicalSpace` 实例](../PerronWright/Probability/FinitePointMeasureCompact.lean#L61) |
-| 闭窗口 `[a,b]×{0,…,R}` | [`PerronWright.FinitePointMeasureCompact.SurplusWindow`](../PerronWright/Probability/FinitePointMeasureCompact.lean#L250) |
-| 实际组件大小–surplus 原子 | [`PerronWright.ComponentWindowPointMeasures.componentAtom`](../PerronWright/Probability/ComponentWindowPointMeasures.lean#L49) |
-| 落在闭窗口中的实际组件 | [`PerronWright.ComponentWindowPointMeasures.WindowComponent`](../PerronWright/Probability/ComponentWindowPointMeasures.lean#L58) |
-| 每个选中组件一个原子的实际窗口点测度 | [`PerronWright.ComponentWindowPointMeasures.windowPointMeasure`](../PerronWright/Probability/ComponentWindowPointMeasures.lean#L78) |
-| 原始可数三次尺度的 starred 倍率 `β^(1/3)` | [`PerronWright.CountableStarredGlobalSizeRescaling.sizeScale`](../PerronWright/Probability/CountableStarredGlobalSizeRescaling.lean#L26) |
-| 规范化 starred 全局无标记法则 | [`PerronWright.CountableStarredGlobalSizeRescaling.normalizedStarredProcessLaw`](../PerronWright/Probability/CountableStarredGlobalSizeRescaling.lean#L32) |
-| 原始 starred 全局无标记法则 | [`PerronWright.CountableStarredGlobalSizeRescaling.unnormalizedStarredProcessLaw`](../PerronWright/Probability/CountableStarredGlobalSizeRescaling.lean#L37) |
-| 规范化 starred 无标记闭窗口法则 | [`PerronWright.CountableStarredTVWindowLaw.normalizedStarredWindowLaw`](../PerronWright/Probability/CountableStarredTVWindowLaw.lean#L30) |
-| 规范化 starred 实际经验标记闭窗口法则 | [`PerronWright.CountableStarredTVWindowLaw.normalizedStarredMarkedWindowLaw`](../PerronWright/Probability/CountableStarredTVWindowLaw.lean#L36) |
-| 原始 starred 无标记闭窗口法则 | [`PerronWright.CountableStarredTVWindowLaw.unnormalizedStarredWindowLaw`](../PerronWright/Probability/CountableStarredTVWindowLaw.lean#L43) |
-| 原始 starred 实际经验标记闭窗口法则 | [`PerronWright.CountableStarredTVWindowLaw.unnormalizedStarredMarkedWindowLaw`](../PerronWright/Probability/CountableStarredTVWindowLaw.lean#L48) |
-| 实际全 excursion、全面积 Poisson surplus 标记的 Brownian 全局法则 | [`PerronWright.BrownianExcursionPointProcessLaw.law`](../PerronWright/Probability/BrownianExcursionPointProcessLaw.lean#L45) |
-| 实际 Brownian 全局过程在任意正闭窗口的法则 | [`PerronWright.BrownianArbitraryWindowLaw.law`](../PerronWright/Probability/BrownianArbitraryWindowLaw.lean#L183) |
+| Global positive-size/surplus base space `(0,∞)×ℕ` | [`PerronWright.ComponentGlobalPointProcess.PositiveSizeSurplus`](../PerronWright/Probability/ComponentGlobalPointProcess.lean#L25) |
+| Local finiteness with a finite integer atomic sum on each compact set | [`PerronWright.LocallyFinitePointMeasureVague.IsLocallyFinitePointMeasure`](../PerronWright/Probability/LocallyFinitePointMeasureVague.lean#L25) |
+| Space of locally finite integer point measures | [`PerronWright.LocallyFinitePointMeasureVague.LocalPointMeasure`](../PerronWright/Probability/LocallyFinitePointMeasureVague.lean#L29) |
+| Vague topology defined by integrals against compactly supported continuous test functions | [`PerronWright.LocallyFinitePointMeasureVague.testEncoding`](../PerronWright/Probability/LocallyFinitePointMeasureVague.lean#L42); [topology instance](../PerronWright/Probability/LocallyFinitePointMeasureVague.lean#L45) |
+| Space of finite integer point measures | [`PerronWright.FinitePointMeasureCompact.PointMeasure`](../PerronWright/Probability/FinitePointMeasureCompact.lean#L33) |
+| Weak topology on finite point measures | [`TopologicalSpace` instance in `PerronWright.FinitePointMeasureCompact`](../PerronWright/Probability/FinitePointMeasureCompact.lean#L61) |
+| Closed window `[a,b]×{0,…,R}` | [`PerronWright.FinitePointMeasureCompact.SurplusWindow`](../PerronWright/Probability/FinitePointMeasureCompact.lean#L250) |
+| Actual component size/surplus atom | [`PerronWright.ComponentWindowPointMeasures.componentAtom`](../PerronWright/Probability/ComponentWindowPointMeasures.lean#L49) |
+| Actual components lying in a closed window | [`PerronWright.ComponentWindowPointMeasures.WindowComponent`](../PerronWright/Probability/ComponentWindowPointMeasures.lean#L58) |
+| Actual window point measure, with one atom per selected component | [`PerronWright.ComponentWindowPointMeasures.windowPointMeasure`](../PerronWright/Probability/ComponentWindowPointMeasures.lean#L78) |
+| Starred multiplier `β^(1/3)` using the original countable cubic scale | [`PerronWright.CountableStarredGlobalSizeRescaling.sizeScale`](../PerronWright/Probability/CountableStarredGlobalSizeRescaling.lean#L26) |
+| Normalized starred global unmarked law | [`PerronWright.CountableStarredGlobalSizeRescaling.normalizedStarredProcessLaw`](../PerronWright/Probability/CountableStarredGlobalSizeRescaling.lean#L32) |
+| Raw starred global unmarked law | [`PerronWright.CountableStarredGlobalSizeRescaling.unnormalizedStarredProcessLaw`](../PerronWright/Probability/CountableStarredGlobalSizeRescaling.lean#L37) |
+| Normalized starred unmarked closed-window law | [`PerronWright.CountableStarredTVWindowLaw.normalizedStarredWindowLaw`](../PerronWright/Probability/CountableStarredTVWindowLaw.lean#L30) |
+| Normalized starred actual empirical-marked closed-window law | [`PerronWright.CountableStarredTVWindowLaw.normalizedStarredMarkedWindowLaw`](../PerronWright/Probability/CountableStarredTVWindowLaw.lean#L36) |
+| Raw starred unmarked closed-window law | [`PerronWright.CountableStarredTVWindowLaw.unnormalizedStarredWindowLaw`](../PerronWright/Probability/CountableStarredTVWindowLaw.lean#L43) |
+| Raw starred actual empirical-marked closed-window law | [`PerronWright.CountableStarredTVWindowLaw.unnormalizedStarredMarkedWindowLaw`](../PerronWright/Probability/CountableStarredTVWindowLaw.lean#L48) |
+| Actual global Brownian law using full excursions and full-area Poisson surplus marks | [`PerronWright.BrownianExcursionPointProcessLaw.law`](../PerronWright/Probability/BrownianExcursionPointProcessLaw.lean#L45) |
+| Law of the actual global Brownian process restricted to any positive closed window | [`PerronWright.BrownianArbitraryWindowLaw.law`](../PerronWright/Probability/BrownianArbitraryWindowLaw.lean#L183) |
 
-## 六、实际经验 TV 标记与定量控制
+## 6. Actual empirical TV marks and quantitative controls
 
-一个组件的标记是该组件内部顶点自然数类型的实际经验概率，而不是人为赋予的 Perron 标记。极限才是把原始 Perron 概率作为常标记添加到每个 Brownian 组件原子上。
+A component's mark is the actual empirical probability distribution of natural-number types among its vertices, not an artificially assigned Perron mark. Only in the limit is the original Perron probability added as a constant mark to every Brownian component atom.
 
-| 含义 | 完整 Lean 声明名与位置 |
+| Meaning | Fully qualified Lean declaration and location |
 | --- | --- |
-| 任意顶点块的实际经验类型测度 | [`PerronWright.EmpiricalTypeMarks.empiricalMeasure`](../PerronWright/Probability/EmpiricalTypeMarks.lean#L31) |
-| 实际组件的经验类型概率测度 | [`PerronWright.EmpiricalTypeMarks.componentMark`](../PerronWright/Probability/EmpiricalTypeMarks.lean#L75) |
-| 以实际 `ℕ` 上概率测度为值的标记空间 | [`PerronWright.CountableVariationMarks.VariationMark`](../PerronWright/Probability/CountableVariationMarks.lean#L52) |
-| 距离等于完整原子绝对变差和 | [`PerronWright.CountableVariationMarks.dist_eq_atomic_variation`](../PerronWright/Probability/CountableVariationMarks.lean#L72) |
-| 完备性 | [`PerronWright.CountableVariationMarks.variationMarkComplete`](../PerronWright/Probability/CountableVariationTopology.lean#L56) |
-| Polish 标记空间 | [`PerronWright.CountableVariationMarks.variationMarkPolish`](../PerronWright/Probability/CountableVariationTopology.lean#L84) |
-| 原始 Perron 概率 `u·μ` 对应的 TV 标记 | [`PerronWright.CountablePerronMarkConvergence.perronMark`](../PerronWright/Probability/CountablePerronMarkConvergence.lean#L19) |
-| 闭窗口与 TV 标记空间的乘积 | [`PerronWright.CountableComponentWindowLaw.MarkedWindow`](../PerronWright/Probability/CountableComponentWindowLaw.lean#L26) |
-| 未加 starred 尺度的实际经验标记窗口点测度 | [`PerronWright.CountableComponentWindowLaw.markedWindowPointMeasure`](../PerronWright/Probability/CountableComponentWindowLaw.lean#L28) |
-| 规范化实际图法则推前得到的经验标记窗口法则 | [`PerronWright.CountableKernel.empiricalMarkedWindowLaw`](../PerronWright/Probability/CountableComponentWindowLaw.lean#L98) |
-| 原始实际图法则推前得到的经验标记窗口法则 | [`PerronWright.CountableKernel.empiricalUnnormalizedMarkedWindowLaw`](../PerronWright/Probability/CountableComponentWindowLaw.lean#L144) |
-| starred 大小缩放后仍保留原经验标记的组件原子 | [`PerronWright.CountableTVWindowSizeRescaling.scaledMarkedWindowAtom`](../PerronWright/Probability/CountableTVWindowSizeRescaling.lean#L26) |
-| starred 实际经验标记窗口点测度 | [`PerronWright.CountableTVWindowSizeRescaling.scaledMarkedWindowPointMeasure`](../PerronWright/Probability/CountableTVWindowSizeRescaling.lean#L35) |
-| 将常 Perron 标记添加到无标记窗口法则上的推前 | [`PerronWright.CountableTVWindowConvergence.canonicalMarkedWindowLaw`](../PerronWright/Probability/CountableTVWindowConvergence.lean#L26) |
-| 窗口内所有组件标记距离的总和 | [`PerronWright.CountableTVWindowProfile.windowDistance`](../PerronWright/Probability/CountableTVWindowProfile.lean#L27) |
-| 标记距离达到阈值 `δ` 的坏标记集合 | [`PerronWright.CountableTVWindowProfile.badMarkCell`](../PerronWright/Probability/CountableTVWindowProfile.lean#L102) |
-| 窗口标记距离总和的实际图期望 | [`PerronWright.CountableKernel.growingWindowDistanceExpectation`](../PerronWright/Probability/CountableTVWindowExpectation.lean#L94) |
-| 窗口中至少存在一个坏标记原子的实际概率 | [`PerronWright.CountableKernel.growingWindowBadProbability`](../PerronWright/Probability/CountableTVWindowTerminal.lean#L22) |
+| Actual empirical type measure of any vertex block | [`PerronWright.EmpiricalTypeMarks.empiricalMeasure`](../PerronWright/Probability/EmpiricalTypeMarks.lean#L31) |
+| Empirical type probability measure of an actual component | [`PerronWright.EmpiricalTypeMarks.componentMark`](../PerronWright/Probability/EmpiricalTypeMarks.lean#L75) |
+| Mark space whose elements are actual probability measures on `ℕ` | [`PerronWright.CountableVariationMarks.VariationMark`](../PerronWright/Probability/CountableVariationMarks.lean#L52) |
+| Distance equals the full sum of atomic absolute variations | [`PerronWright.CountableVariationMarks.dist_eq_atomic_variation`](../PerronWright/Probability/CountableVariationMarks.lean#L72) |
+| Completeness | [`PerronWright.CountableVariationMarks.variationMarkComplete`](../PerronWright/Probability/CountableVariationTopology.lean#L56) |
+| Polish mark space | [`PerronWright.CountableVariationMarks.variationMarkPolish`](../PerronWright/Probability/CountableVariationTopology.lean#L84) |
+| TV mark corresponding to the original Perron probability `u·μ` | [`PerronWright.CountablePerronMarkConvergence.perronMark`](../PerronWright/Probability/CountablePerronMarkConvergence.lean#L19) |
+| Product of a closed window with the TV mark space | [`PerronWright.CountableComponentWindowLaw.MarkedWindow`](../PerronWright/Probability/CountableComponentWindowLaw.lean#L26) |
+| Actual empirical-marked window point measure in unstarred size coordinates | [`PerronWright.CountableComponentWindowLaw.markedWindowPointMeasure`](../PerronWright/Probability/CountableComponentWindowLaw.lean#L28) |
+| Empirical-marked window law obtained by pushing forward the normalized actual graph law | [`PerronWright.CountableKernel.empiricalMarkedWindowLaw`](../PerronWright/Probability/CountableComponentWindowLaw.lean#L98) |
+| Empirical-marked window law obtained by pushing forward the raw actual graph law | [`PerronWright.CountableKernel.empiricalUnnormalizedMarkedWindowLaw`](../PerronWright/Probability/CountableComponentWindowLaw.lean#L144) |
+| Component atom after starred size rescaling, with its original empirical mark retained | [`PerronWright.CountableTVWindowSizeRescaling.scaledMarkedWindowAtom`](../PerronWright/Probability/CountableTVWindowSizeRescaling.lean#L26) |
+| Starred actual empirical-marked window point measure | [`PerronWright.CountableTVWindowSizeRescaling.scaledMarkedWindowPointMeasure`](../PerronWright/Probability/CountableTVWindowSizeRescaling.lean#L35) |
+| Pushforward adding the constant Perron mark to an unmarked window law | [`PerronWright.CountableTVWindowConvergence.canonicalMarkedWindowLaw`](../PerronWright/Probability/CountableTVWindowConvergence.lean#L26) |
+| Sum of component mark distances within a window | [`PerronWright.CountableTVWindowProfile.windowDistance`](../PerronWright/Probability/CountableTVWindowProfile.lean#L27) |
+| Bad-mark set where mark distance reaches threshold `δ` | [`PerronWright.CountableTVWindowProfile.badMarkCell`](../PerronWright/Probability/CountableTVWindowProfile.lean#L102) |
+| Actual graph expectation of the sum of window mark distances | [`PerronWright.CountableKernel.growingWindowDistanceExpectation`](../PerronWright/Probability/CountableTVWindowExpectation.lean#L94) |
+| Actual probability that the window contains at least one bad-mark atom | [`PerronWright.CountableKernel.growingWindowBadProbability`](../PerronWright/Probability/CountableTVWindowTerminal.lean#L22) |
 
-这些距离期望和坏标记概率控制使用未加 starred 尺度的原始大小窗口；starred 法则本身通过正大小缩放转移到相应闭窗口。公共主定理同时给出这两种表述，不能把定量控制误写成新的外部收敛假设。
+These distance expectations and bad-mark probabilities are controlled in the original, unstarred size windows. The starred laws themselves are transferred to corresponding closed windows by positive size rescaling. The public theorem gives both formulations; these quantitative controls must not be rewritten as new external convergence assumptions.
