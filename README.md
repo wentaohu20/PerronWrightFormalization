@@ -62,6 +62,8 @@ The dependency inspector is [MainTheoremDependencies.lean](MainTheoremDependenci
 
 Names below omit the common prefix `PerronWright.` unless otherwise indicated. Each link points to the declaration's source line, where its full statement and proof can be read.
 
+Each theorem section also lists its theorem-facing definitions: model assumptions, quantities in the conclusion, and the actual source and limiting objects. These readable tables are not exhaustive lists of internal proof helpers; the dependency verifier exports the full type-and-proof closure.
+
 ### Theorem 3.6 — Perron–Wright formula
 
 | Model | Declaration | Location |
@@ -77,6 +79,26 @@ k^{k+3r/2-2}\{1+O_R(\eta_k+k^{-1/2})\},\qquad |t-1|\le\eta_k\to0.
 $$
 
 They also give the Gaussian specialization on `|t−1|≤Lk⁻¹ᐟ²`. Here **`ρ` is the actual radius of the rooted-tree series**; `eρ` is an exponential scale in the enumerative main term, not another tree-series radius. The compact enumeration theorem requires B1–B2, not the additional probabilistic `QP` assumption.
+
+#### Definitions used in Theorem 3.6
+
+| Object to audit | Finite irreducible definition | Compact definition |
+| --- | --- | --- |
+| Type law and kernel model | [`FiniteIrreducibleModel`:22](PerronWright/Model/FiniteIrreducibleModel.lean#L22) | [`CompactBJRModel`:29](PerronWright/Model/CompactBJR.lean#L29) |
+| Criticality assumptions | [`FiniteIrreducibleModel.IsCritical`:51](PerronWright/Model/FiniteIrreducibleModel.lean#L51) | [`CompactBJRModel.B1`:93](PerronWright/Model/CompactBJR.lean#L93), [`B2`:174](PerronWright/Model/CompactBJR.lean#L174), [`IsRegularCritical`:191](PerronWright/Model/CompactBJR.lean#L191) |
+| Mean operator `K` | [`FiniteIrreducibleModel.action`:20](PerronWright/Model/FiniteIrreduciblePerronQuantities.lean#L20) | [`CompactBJRModel.integralAction`:60](PerronWright/Model/CompactBJR.lean#L60), [`B1Witness`:85](PerronWright/Model/CompactBJR.lean#L85) |
+| Normalized Perron function `u`, with `Ku=u` and `∫u dμ=1` | [`FiniteIrreducibleModel.perronFunction`:124](PerronWright/Model/FiniteIrreduciblePerronQuantities.lean#L124) | [`CompactBJRModel.perronFunction`:22](PerronWright/Model/PerronQuantities.lean#L22) |
+| Perron scales `α=∫u² dμ`, `β=∫u³ dμ` | [`FiniteIrreducibleModel.alpha`:139](PerronWright/Model/FiniteIrreduciblePerronQuantities.lean#L139), [`beta`:142](PerronWright/Model/FiniteIrreduciblePerronQuantities.lean#L142) | [`CompactBJRModel.alpha`:92](PerronWright/Model/PerronQuantities.lean#L92), [`beta`:96](PerronWright/Model/PerronQuantities.lean#L96) |
+| Actual connected simple-graph weight `C_t(k,r)` | The same [`CompactBJRModel.connectedWeight`:53](PerronWright/Enumeration/ConnectedWeight.lean#L53), through [`FiniteIrreducibleModel.bjrModel`:62](PerronWright/Model/FiniteIrreducibleBJRBridge.lean#L62) | [`CompactBJRModel.graphWeight`:46](PerronWright/Enumeration/ConnectedWeight.lean#L46), [`connectedWeight`:53](PerronWright/Enumeration/ConnectedWeight.lean#L53) |
+| Scalar field `g_t=log t−(t−1)d`, with `d=K1` | [`FiniteIrreducibleScalarFieldResponse.scalarField`:22](PerronWright/Analysis/FiniteIrreducibleScalarFieldResponse.lean#L22) | [`ScalarFieldResponse.scalarFieldComplex`:14](PerronWright/Analysis/ScalarFieldResponse.lean#L14); [`CompactBJRModel.degreeFunction`:128](PerronWright/Model/PerronQuantities.lean#L128) |
+| Actual rooted-tree series whose radius is identified | [`FiniteIrreducibleModel.fieldFMS`:58](PerronWright/Analysis/FiniteIrreducibleFieldSeriesNormalization.lean#L58) | [`FieldRootedTree.fms`:41](PerronWright/Enumeration/ScalarFieldRootedTreeRadius.lean#L41), built from [`FieldRootedTree.series`:256](PerronWright/Enumeration/FieldRootedTreeFinite.lean#L256) |
+| Physical real radius `ρ(t)` | [`FiniteIrreducibleCriticalWindowRadiusConversion.realScalarRadius`:23](PerronWright/Analysis/FiniteIrreducibleCriticalWindowRadiusConversion.lean#L23) | [`CompactPerronWrightTheorem.ScalarRadius.physicalRadius`:34](PerronWright/Enumeration/CompactPerronWrightTheorem.lean#L34) |
+| Complex radius and its normalized logarithm | [`FiniteIrreducibleScalarFieldResponse.scalarRadius`:25](PerronWright/Analysis/FiniteIrreducibleScalarFieldResponse.lean#L25), [`FiniteIrreducibleScalarLogRadiusTaylor.logScalarRadius`:66](PerronWright/Analysis/FiniteIrreducibleScalarLogRadiusTaylor.lean#L66) | [`CompactPerronWrightTheorem.ScalarRadius.criticalRadius`:28](PerronWright/Enumeration/CompactPerronWrightTheorem.lean#L28), [`ScalarLogRadiusTaylor.logScalarRadius`:57](PerronWright/Analysis/ScalarLogRadiusTaylor.lean#L57) |
+| Surplus-indexed Wright constant `w_r` | [`FiniteIrreduciblePerronWrightFormulaMainTerm.wrightConstant`:26](PerronWright/Analysis/FiniteIrreduciblePerronWrightFormulaMainTerm.lean#L26) | [`PerronWrightFormulaMainTerm.wrightConstant`:25](PerronWright/Enumeration/PerronWrightFormulaMainTerm.lean#L25) |
+| Exact-radius enumerative main term | [`FiniteIrreduciblePerronWrightFormulaMainTerm.perronWrightRadiusMainTerm`:64](PerronWright/Analysis/FiniteIrreduciblePerronWrightFormulaMainTerm.lean#L64) | [`PerronWrightFormulaMainTerm.perronWrightRadiusMainTerm`:58](PerronWright/Enumeration/PerronWrightFormulaMainTerm.lean#L58) |
+| Gaussian critical-window main term | [`FiniteIrreducibleBoundedSurplusPerronWrightFormula.perronWrightGaussianMainTerm`:131](PerronWright/Analysis/FiniteIrreducibleBoundedSurplusPerronWrightFormula.lean#L131) | [`BoundedSurplusPerronWrightFormula.perronWrightGaussianMainTerm`:131](PerronWright/Enumeration/BoundedSurplusPerronWrightFormula.lean#L131) |
+
+The terminal namespaces export several of these definitions under shorter aliases. For the actual graph integrals, tree coefficients, analytic critical pairs, and cubic-kernel definition of `w_r`, see the [Theorem 3.6 definition index](docs/ENUMERATION_INDEX.md).
 
 ### Theorem 3.8 — Local factorial asymptotics and component process limit
 
@@ -104,6 +126,35 @@ The starred declarations are the paper's rescaled process conclusions. The size 
 
 The finite model permits arbitrary actual deterministic assignments whose type counts have uniformly bounded errors. The compact probabilistic declarations require both `IsRegularCritical` and `QP`.
 
+#### Definitions used in Theorem 3.8
+
+The model, criticality, Perron function, and scales `α, β` are the [definitions listed for Theorem 3.6](#definitions-used-in-theorem-36). The additional probability objects are listed below. For finite types, `hround` is the assumption that one `D ≥ 0` bounds `|fiberCount(xₙ,s)−n M.weight(s)|` for every type and all sufficiently large `n`; it is written directly in the theorem statements, not packaged as a separate definition.
+
+| Object to audit | Definitions and source locations |
+| --- | --- |
+| Actual finite-type counts | [`FiniteIrreducibleTypePlacementMultiplicity.fiberCount`:97](PerronWright/Probability/FiniteIrreducibleTypePlacementMultiplicity.lean#L97) |
+| Compact probability assumption `QP`: an absolutely summable quadratic feature representation, not a type-count condition | [`CompactBJRModel.QP`:82](PerronWright/Probability/ProjectiveKernel.lean#L82), [`ProjectiveKernel.HasRepresentation`:47](PerronWright/Probability/ProjectiveKernel.lean#L47) |
+| Actual graph laws: fixed finite types, compact annealed graphs, and the joint type/graph source for empirical marks | [`FiniteIrreducibleTypedGraphLaw.law`:52](PerronWright/Probability/FiniteIrreducibleTypedGraphLaw.lean#L52), [`AnnealedGraph.law`:166](PerronWright/Probability/AnnealedGraph.lean#L166), [`AnnealedTypedGraph.law`:39](PerronWright/Probability/AnnealedTypedGraph.lean#L39); edge probability `1−exp(−z)` is in [`IndependentEdges.edgeMass`:25](PerronWright/Probability/IndependentEdges.lean#L25) |
+| Paper time `1+λn^(−1/3)`, its nonnegative all-`n` convention, and literal integer size `⌊xn^(2/3)⌋₊` | [`FiniteIrreducibleCriticalPrefactorScaling.rawTime`:19](PerronWright/Probability/FiniteIrreducibleCriticalPrefactorScaling.lean#L19), [`CriticalScaling.time`:24](PerronWright/Probability/CriticalScaling.lean#L24), [`CriticalScaling.size`:49](PerronWright/Probability/CriticalScaling.lean#L49) |
+| Genuine component sizes, surplus `edges+1−vertices`, and ordered distinct component counts | [`ComponentCounts.componentSize`:31](PerronWright/Probability/ComponentCounts.lean#L31), [`componentSurplus`:35](PerronWright/Probability/ComponentCounts.lean#L35), [`GoodComponentTuples`:46](PerronWright/Probability/ComponentCounts.lean#L46), [`count`:60](PerronWright/Probability/ComponentCounts.lean#L60) |
+| Actual scaled factorial expectations `n^(2q/3) E[count]` | [`FiniteIrreducibleLocalMainIdentity.scaledFactorialExpectation`:34](PerronWright/Probability/FiniteIrreducibleLocalMainIdentity.lean#L34), [`CompactAnnealedFactorialLocal.localExpectation`:27](PerronWright/Probability/CompactAnnealedFactorialLocal.lean#L27) |
+| Explicit ordered factorial density and the closed size window | [`FactorialDensity.criticalExponent`:19](PerronWright/Probability/FactorialDensity.lean#L19), [`sizeFactor`:24](PerronWright/Probability/FactorialDensity.lean#L24), [`density`:29](PerronWright/Probability/FactorialDensity.lean#L29), [`sizeWindow`:21](PerronWright/Probability/FactorialWindowMass.lean#L21) |
+| Finite integer point measures on closed size–surplus windows | [`FinitePointMeasureCompact.PointMeasure`:33](PerronWright/Probability/FinitePointMeasureCompact.lean#L33), [`SurplusWindow`:250](PerronWright/Probability/FinitePointMeasureCompact.lean#L250); [weak-topology instance:61](PerronWright/Probability/FinitePointMeasureCompact.lean#L61), [Borel instance:66](PerronWright/Probability/FinitePointMeasureCompact.lean#L66) |
+| Global locally finite integer point measures on `(0,∞)×ℕ` | [`ComponentGlobalPointProcess.PositiveSizeSurplus`:25](PerronWright/Probability/ComponentGlobalPointProcess.lean#L25), [`LocallyFinitePointMeasureVague.LocalPointMeasure`:29](PerronWright/Probability/LocallyFinitePointMeasureVague.lean#L29), [`testEncoding`:42](PerronWright/Probability/LocallyFinitePointMeasureVague.lean#L42); [vague-topology instance:45](PerronWright/Probability/LocallyFinitePointMeasureVague.lean#L45), [Borel instance:48](PerronWright/Probability/LocallyFinitePointMeasureVague.lean#L48) |
+| Actual unmarked window and global source laws | Finite: [`FiniteIrreducibleComponentProcess.unmarkedWindowLaw`:43](PerronWright/Probability/FiniteIrreducibleComponentProcess.lean#L43), [`unmarkedProcessLaw`:38](PerronWright/Probability/FiniteIrreducibleComponentProcess.lean#L38). Compact: [`ComponentWindowPointMeasures.unmarkedWindowLaw`:249](PerronWright/Probability/ComponentWindowPointMeasures.lean#L249), [`ComponentGlobalPointProcess.unmarkedProcessLaw`:218](PerronWright/Probability/ComponentGlobalPointProcess.lean#L218) |
+| Actual empirical component type mark and limiting Perron mark `u·μ` | [`EmpiricalTypeMarks.componentMark`:75](PerronWright/Probability/EmpiricalTypeMarks.lean#L75), [`perronMark`:118](PerronWright/Probability/EmpiricalTypeMarks.lean#L118), [`FiniteIrreducibleConnectedTypeLaw.perronLaw`:43](PerronWright/Probability/FiniteIrreducibleConnectedTypeLaw.lean#L43) |
+| Weak topology on probability-valued marks and marked size–surplus spaces | [`WeakProbabilityMarks.WeakMark`:17](PerronWright/Probability/WeakProbabilityMarks.lean#L17), [`homeomorph`:27](PerronWright/Probability/WeakProbabilityMarks.lean#L27), [`ComponentWindowMarkedLaw.MarkedWindow`:29](PerronWright/Probability/ComponentWindowMarkedLaw.lean#L29), [`ComponentGlobalMarkedProcess.MarkedPositiveSizeSurplus`:33](PerronWright/Probability/ComponentGlobalMarkedProcess.lean#L33) |
+| Source laws retaining actual empirical type marks | Finite: [`FiniteIrreducibleMarkedComponentProcess.markedWindowLaw`:46](PerronWright/Probability/FiniteIrreducibleMarkedComponentProcess.lean#L46), [`markedProcessLaw`:52](PerronWright/Probability/FiniteIrreducibleMarkedComponentProcess.lean#L52). Compact: [`ComponentWindowMarkedLaw.markedWindowLaw`:77](PerronWright/Probability/ComponentWindowMarkedLaw.lean#L77), [`ComponentGlobalMarkedProcess.markedProcessLaw`:76](PerronWright/Probability/ComponentGlobalMarkedProcess.lean#L76) |
+| Starred size scale `β^(1/3)` | Finite: [`FiniteIrreduciblePointProcessNormalization.sizeScale`:26](PerronWright/Probability/FiniteIrreduciblePointProcessNormalization.lean#L26). Compact: [`ComponentPointProcesses.sizeScale`:37](PerronWright/Probability/PointProcessNormalization.lean#L37) |
+| Starred unmarked and empirically marked global source laws | Finite: [`FiniteIrreducibleGlobalSizeRescaling.starredProcessLaw`:77](PerronWright/Probability/FiniteIrreducibleGlobalSizeRescaling.lean#L77), [`FiniteIrreducibleGlobalMarkedSizeRescaling.starredMarkedProcessLaw`:148](PerronWright/Probability/FiniteIrreducibleGlobalMarkedSizeRescaling.lean#L148). Compact: [`GlobalPointSizeRescaling.starredProcessLaw`:112](PerronWright/Probability/GlobalPointSizeRescaling.lean#L112), [`GlobalMarkedPointSizeRescaling.starredMarkedProcessLaw`:156](PerronWright/Probability/GlobalMarkedPointSizeRescaling.lean#L156) |
+| Actual continuous Brownian whole-path law, parabolic drift, and reflection at the running minimum | [`BrownianPathLaw.Path`:32](PerronWright/Probability/BrownianPathLaw.lean#L32), [`pathLaw`:111](PerronWright/Probability/BrownianPathLaw.lean#L111), [`BrownianPathReflectionLaw.driftPath`:33](PerronWright/Probability/BrownianPathReflectionLaw.lean#L33), [`driftedReflectionPath`:36](PerronWright/Probability/BrownianPathReflectionLaw.lean#L36) |
+| Full excursion lengths and areas, with area-rate Poisson surplus marks conditionally independent given the path | [`FullHorizonExcursionComponents.length`:123](PerronWright/Probability/FullHorizonExcursionComponents.lean#L123), [`BrownianFullHorizonExcursionAreas.excursionArea`:51](PerronWright/Probability/BrownianFullHorizonExcursionAreas.lean#L51), [`BrownianFullHorizonPoissonMarks.markLaw`:78](PerronWright/Probability/BrownianFullHorizonPoissonMarks.lean#L78), [`pathJointLaw`:174](PerronWright/Probability/BrownianFullHorizonPoissonMarks.lean#L174) |
+| Actual global Brownian excursion law and closed-window target law | [`BrownianExcursionPointProcessLaw.law`:45](PerronWright/Probability/BrownianExcursionPointProcessLaw.lean#L45), [`BrownianArbitraryWindowLaw.law`:183](PerronWright/Probability/BrownianArbitraryWindowLaw.lean#L183) |
+| Unstarred Brownian targets, obtained by inverse size dilation | [`BrownianInverseSizeLaw.inverseScaledLaw`:41](PerronWright/Probability/BrownianInverseSizeLaw.lean#L41), [`BrownianInverseWindowLaw.law`:24](PerronWright/Probability/BrownianInverseWindowLaw.lean#L24) |
+| Brownian targets with a constant Perron mark attached to every atom | Finite: [`FiniteIrreducibleMarkedWindowConvergence.canonicalPerronMarkedLaw`:26](PerronWright/Probability/FiniteIrreducibleMarkedWindowConvergence.lean#L26), [`FiniteIrreducibleMarkedGlobalTests.canonicalGlobalMarkedLaw`:33](PerronWright/Probability/FiniteIrreducibleMarkedGlobalTests.lean#L33). Compact: [`ComponentWindowMarkedConvergence.canonicalPerronMarkedLaw`:27](PerronWright/Probability/ComponentWindowMarkedConvergence.lean#L27), [`GlobalPointMeasureMarking.canonicalGlobalMarkedLaw`:78](PerronWright/Probability/GlobalPointMeasureMarking.lean#L78) |
+
+The terminal statements write the Brownian parameter `αβ^(−2/3)λ` directly, using the Perron scales defined for Theorem 3.6. Convergence is weak convergence of probability laws on the specified point-measure spaces, not total-variation convergence of process laws. For the full construction and topology details, see the [probability definition index](docs/PROBABILITY_INDEX.md).
+
 ### Theorem 3.9 — Countable type critical realization
 
 The joint declaration is:
@@ -112,11 +163,59 @@ The joint declaration is:
 
 See [line 90](PerronWright/Probability/CountableActualBrownianLimits.lean#L90). One outermost `∃ level` supplies exhausting supports, exact positive integer type counts, and the actual graph sources used throughout. Its **spectrally normalized branch** uses edge hazard `tκ/(Nσ_n)` and gives uniform local factorial limits, starred unmarked global Brownian limits, unmarked and TV-marked window limits, and quantitative type-mark control.
 
+#### Definitions used in Theorem 3.9
+
+The original countable model supplies all Perron quantities and the limiting mark. The graph index is `n`, with actual vertex count `N=n+1`. Component counts, density, point-measure topologies, and Brownian constructions use the [shared probability definitions listed for Theorem 3.8](#definitions-used-in-theorem-38).
+
+| Object to audit | Definitions and source locations |
+| --- | --- |
+| Countable kernel and type probability law | [`CountableKernel`:19](PerronWright/Model/CountableKernel.lean#L19) |
+| Spectral criticality and regular criticality with a uniformly positive kernel lower bound | [`CountableKernel.IsCritical`:19](PerronWright/Kernel/CountablePerron.lean#L19), [`CountableKernel.IsRegularCritical`:18](PerronWright/Model/CountablePerronQuantities.lean#L18) |
+| Normalized positive Perron vector `u` and Perron probability `u·μ` | [`CountableKernel.perronVector`:27](PerronWright/Model/CountablePerronQuantities.lean#L27), [`perronLaw`:52](PerronWright/Model/CountablePerronQuantities.lean#L52) |
+| Original scales `α=∫u² dμ`, `β=∫u³ dμ` | [`CountableKernel.alpha`:92](PerronWright/Model/CountablePerronQuantities.lean#L92), [`beta`:95](PerronWright/Model/CountablePerronQuantities.lean#L95) |
+| Original atomic weights and normalized truncated type law | [`CountableTypeRealization.weights`:28](PerronWright/Probability/CountableTypeRealization.lean#L28), [`GrowingTypeCounts.truncatedLaw`:46](PerronWright/Probability/GrowingTypeCounts.lean#L46) |
+| Integer type counts on `{0,…,level N}`, summing exactly to `N` | [`GrowingTypeCounts.truncatedCounts`:57](PerronWright/Probability/GrowingTypeCounts.lean#L57); `level` is constructed by the theorem's existential conclusion, with retained types indexed by `Fin (level N+1)` |
+| Actual vertex-type assignment and its empirical measure | [`CountableTypeRealization.vertexTypes`:30](PerronWright/Probability/CountableTypeRealization.lean#L30), [`empiricalMeasure`:65](PerronWright/Probability/CountableTypeRealization.lean#L65) |
+| Empirical mean operator and actual spectral radius `σ_n` | [`CountableKernel.empiricalOperator`:51](PerronWright/Kernel/CountableApproximationEmpirical.lean#L51), [`empiricalSpectralRadius`:55](PerronWright/Kernel/CountableApproximationEmpirical.lean#L55) |
+| Nonnegative critical time and spectrally normalized edge hazards | [`CriticalScaling.time`:24](PerronWright/Probability/CriticalScaling.lean#L24), [`CountableKernel.empiricalNormalizedHazards`:25](PerronWright/Probability/CountableEmpiricalGraphLaw.lean#L25) |
+| Actual spectrally normalized independent-edge graph law | [`CountableKernel.empiricalNormalizedGraphLaw`:41](PerronWright/Probability/CountableEmpiricalGraphLaw.lean#L41) |
+| Scaled local factorial expectation and target density | [`CountableKernel.growingLocalExpectation`:32](PerronWright/Probability/CountableFixedSupportGrowingSource.lean#L32), [`FactorialDensity.density`:29](PerronWright/Probability/FactorialDensity.lean#L29) |
+| Starred multiplier using the original `β^(1/3)`, and normalized global **unmarked** law | [`CountableStarredGlobalSizeRescaling.sizeScale`:26](PerronWright/Probability/CountableStarredGlobalSizeRescaling.lean#L26), [`normalizedStarredProcessLaw`:32](PerronWright/Probability/CountableStarredGlobalSizeRescaling.lean#L32) |
+| Normalized starred unmarked and empirical-TV-marked closed-window laws | [`CountableStarredTVWindowLaw.normalizedStarredWindowLaw`:30](PerronWright/Probability/CountableStarredTVWindowLaw.lean#L30), [`normalizedStarredMarkedWindowLaw`:36](PerronWright/Probability/CountableStarredTVWindowLaw.lean#L36) |
+| Actual component empirical type mark | [`EmpiricalTypeMarks.componentMark`:75](PerronWright/Probability/EmpiricalTypeMarks.lean#L75) |
+| TV mark space and its atomic `ℓ¹` metric | [`CountableVariationMarks.VariationMark`:52](PerronWright/Probability/CountableVariationMarks.lean#L52), [`encoding`:57](PerronWright/Probability/CountableVariationMarks.lean#L57); [metric instance:65](PerronWright/Probability/CountableVariationMarks.lean#L65) |
+| Original Perron TV mark | [`CountablePerronMarkConvergence.perronMark`:19](PerronWright/Probability/CountablePerronMarkConvergence.lean#L19) |
+| TV-marked window space and normalized empirical law on unstarred windows | [`CountableComponentWindowLaw.MarkedWindow`:26](PerronWright/Probability/CountableComponentWindowLaw.lean#L26), [`CountableKernel.empiricalMarkedWindowLaw`:98](PerronWright/Probability/CountableComponentWindowLaw.lean#L98) |
+| Sum of component mark distances and the bad-mark set | [`CountableTVWindowProfile.windowDistance`:27](PerronWright/Probability/CountableTVWindowProfile.lean#L27), [`badMarkCell`:102](PerronWright/Probability/CountableTVWindowProfile.lean#L102) |
+| Quantitative normalized mark-distance expectation and bad-mark probability | [`CountableKernel.growingWindowDistanceExpectation`:94](PerronWright/Probability/CountableTVWindowExpectation.lean#L94), [`growingWindowBadProbability`:22](PerronWright/Probability/CountableTVWindowTerminal.lean#L22) |
+| Actual global and closed-window Brownian targets | [`BrownianExcursionPointProcessLaw.law`:45](PerronWright/Probability/BrownianExcursionPointProcessLaw.lean#L45), [`BrownianArbitraryWindowLaw.law`:183](PerronWright/Probability/BrownianArbitraryWindowLaw.lean#L183) |
+| Constant-Perron-TV-marked Brownian window target | [`CountableTVWindowConvergence.canonicalMarkedWindowLaw`:26](PerronWright/Probability/CountableTVWindowConvergence.lean#L26) |
+
+The quantitative distance and bad-mark controls use **unstarred** size windows; the process limits use the displayed starred laws. The [countable definition index](docs/COUNTABLE_INDEX.md) spells out the common integer realization and each branch of the joint conclusion.
+
 ### Theorem 3.10 — Countable type limits without spectral renormalization
 
 This is the **unnormalized branch of the same joint declaration**, using the same integer realization and edge hazard `tκ/N`. Under `N^(1/3)(σ_n−1)→θ`, its local density parameter is **`λ+θ`**, and its actual Brownian parameter is **`αβ^(−2/3)(λ+θ)`**. The spectral-drift hypothesis cannot be omitted.
 
 For both countable branches, global convergence is asserted only for the **unmarked vague law**. TV refers to the metric on component type marks; marked window laws converge weakly in that mark space. It does **not** mean total-variation convergence between whole process probability laws. The [countable index](docs/COUNTABLE_INDEX.md) distinguishes normalized/raw sources, starred laws, and unstarred-window quantitative estimates.
+
+#### Definitions used in Theorem 3.10
+
+The model, original Perron quantities, integer realization, empirical spectral radius, point-measure spaces, TV marks, and Brownian targets are the [same definitions as in Theorem 3.9](#definitions-used-in-theorem-39). The following objects replace the normalized source or express its effective critical parameter. The spectral-drift premise is written directly in the [joint terminal statement](PerronWright/Probability/CountableActualBrownianLimits.lean#L110).
+
+| Additional or changed object to audit | Definitions and source locations |
+| --- | --- |
+| Raw edge hazards, without division by `σ_n` | [`CountableKernel.empiricalUnnormalizedHazards`:66](PerronWright/Probability/CountableEmpiricalGraphLaw.lean#L66) |
+| Actual raw independent-edge graph law | [`CountableKernel.empiricalUnnormalizedGraphLaw`:78](PerronWright/Probability/CountableEmpiricalGraphLaw.lean#L78) |
+| Effective critical parameter `N^(1/3)((1+λN^(−1/3))σ_n−1)` | [`CriticalParameterDrift.effectiveParameter`:22](PerronWright/Probability/CriticalParameterDrift.lean#L22), [`CountableKernel.empiricalEffectiveParameter`:17](PerronWright/Probability/CountableEmpiricalSpectralDrift.lean#L17) |
+| Raw scaled local factorial expectation | [`CountableKernel.growingUnnormalizedLocalExpectation`:23](PerronWright/Probability/CountableUnnormalizedLocalTerminal.lean#L23) |
+| Raw starred global **unmarked** law | [`CountableStarredGlobalSizeRescaling.unnormalizedStarredProcessLaw`:37](PerronWright/Probability/CountableStarredGlobalSizeRescaling.lean#L37) |
+| Raw starred unmarked closed-window law | [`CountableStarredTVWindowLaw.unnormalizedStarredWindowLaw`:43](PerronWright/Probability/CountableStarredTVWindowLaw.lean#L43) |
+| Raw starred empirical-TV-marked closed-window law | [`CountableStarredTVWindowLaw.unnormalizedStarredMarkedWindowLaw`:48](PerronWright/Probability/CountableStarredTVWindowLaw.lean#L48) |
+| Raw empirical-marked law in unstarred size windows | [`CountableKernel.empiricalUnnormalizedMarkedWindowLaw`:144](PerronWright/Probability/CountableComponentWindowLaw.lean#L144) |
+| Objects in the raw quantitative mark controls | [`CountableTVWindowProfile.windowDistance`:27](PerronWright/Probability/CountableTVWindowProfile.lean#L27), integrated against the raw graph law; [`badMarkCell`:102](PerronWright/Probability/CountableTVWindowProfile.lean#L102), tested under the raw empirical-marked window law |
+
+The raw quantitative controls are literal integrals and event probabilities in the joint statement, not separately named expectation/probability definitions. As in Theorem 3.9, they concern **unstarred** size windows.
 
 ## Supporting Brownian results
 
@@ -131,31 +230,9 @@ These results support the paper's Brownian factorial-density and determinacy pro
 
 Their source is an actual continuous Brownian path, reflected excursions, and Poisson marks that are conditionally independent given the path, with excursion areas as their rates. Brownian identification is proved rather than assumed as an external interface.
 
-## Definitions used by the main theorems
+## Detailed source and dependency indices
 
-This table locates the core semantic objects. The detailed indices below supply fully qualified names and source lines for the remaining objects; the generated index covers all project definitions reachable through types and proofs, including internal helpers.
-
-| Object | Definition and location |
-| --- | --- |
-| Finite irreducible model and criticality | [`FiniteIrreducibleModel`:22](PerronWright/Model/FiniteIrreducibleModel.lean#L22), [`IsCritical`:51](PerronWright/Model/FiniteIrreducibleModel.lean#L51) |
-| Compact BJR model, B1–B2, regular criticality | [`CompactBJRModel`:29](PerronWright/Model/CompactBJR.lean#L29), [B1:93](PerronWright/Model/CompactBJR.lean#L93), [B2:174](PerronWright/Model/CompactBJR.lean#L174), [`IsRegularCritical`:191](PerronWright/Model/CompactBJR.lean#L191) |
-| Countable model and regular criticality | [`CountableKernel`:19](PerronWright/Model/CountableKernel.lean#L19), [`IsRegularCritical`:18](PerronWright/Model/CountablePerronQuantities.lean#L18) |
-| Compact probability assumption `QP` | [`CompactBJRModel.QP`:82](PerronWright/Probability/ProjectiveKernel.lean#L82): an absolutely summable quadratic feature representation of the kernel, not a type-count condition |
-| Normalized Perron function, Perron law, `α`, `β` | [Compact quantities](PerronWright/Model/PerronQuantities.lean#L22), [finite quantities](PerronWright/Model/FiniteIrreduciblePerronQuantities.lean#L124), [countable quantities](PerronWright/Model/CountablePerronQuantities.lean#L27) |
-| Kernel-weighted connected graph count `C_t(k,r)` | [`connectedWeight`:53](PerronWright/Enumeration/ConnectedWeight.lean#L53), [`fieldConnectedWeight`:97](PerronWright/Enumeration/FieldWeight.lean#L97) |
-| Rooted-tree series and genuine critical radius | [`FieldRootedTree.fms`:41](PerronWright/Enumeration/ScalarFieldRootedTreeRadius.lean#L41), [`ScalarRadius.physicalRadius`:34](PerronWright/Enumeration/CompactPerronWrightTheorem.lean#L34) |
-| Wright constants and exact-radius main term | [`wrightConstant`:25](PerronWright/Enumeration/PerronWrightFormulaMainTerm.lean#L25), [`perronWrightRadiusMainTerm`:58](PerronWright/Enumeration/PerronWrightFormulaMainTerm.lean#L58) |
-| Actual finite and compact graph probability measures | [`FiniteIrreducibleTypedGraphLaw.law`:52](PerronWright/Probability/FiniteIrreducibleTypedGraphLaw.lean#L52), [`AnnealedGraph.law`:166](PerronWright/Probability/AnnealedGraph.lean#L166) |
-| Critical time, integer component sizes, ordered distinct component count | [CriticalScaling:24, 49](PerronWright/Probability/CriticalScaling.lean#L24), [`ComponentCounts.count`:60](PerronWright/Probability/ComponentCounts.lean#L60) |
-| Target local factorial density | [`FactorialDensity.density`:29](PerronWright/Probability/FactorialDensity.lean#L29); its exponent and size factor are at lines 19 and 24 of the same file |
-| Finite-window and locally finite global point measures | [`PointMeasure`:33](PerronWright/Probability/FinitePointMeasureCompact.lean#L33), [`SurplusWindow`:250](PerronWright/Probability/FinitePointMeasureCompact.lean#L250), [`LocalPointMeasure`:29](PerronWright/Probability/LocallyFinitePointMeasureVague.lean#L29) |
-| Actual Brownian path and excursion process law | [`BrownianPathLaw.pathLaw`:111](PerronWright/Probability/BrownianPathLaw.lean#L111), [`BrownianExcursionPointProcessLaw.law`:45](PerronWright/Probability/BrownianExcursionPointProcessLaw.lean#L45) |
-| Excursion area and conditional Poisson marking | [`excursionArea`:51](PerronWright/Probability/BrownianFullHorizonExcursionAreas.lean#L51), [`markLaw`:78](PerronWright/Probability/BrownianFullHorizonPoissonMarks.lean#L78) |
-| Empirical component type mark and Perron mark | [`componentMark`:75](PerronWright/Probability/EmpiricalTypeMarks.lean#L75), [`perronMark`:118](PerronWright/Probability/EmpiricalTypeMarks.lean#L118) |
-| Countable integer counts, empirical spectral radius, and actual graph sources | [GrowingTypeCounts](PerronWright/Probability/GrowingTypeCounts.lean#L57), [`empiricalSpectralRadius`:55](PerronWright/Kernel/CountableApproximationEmpirical.lean#L55), [CountableEmpiricalGraphLaw](PerronWright/Probability/CountableEmpiricalGraphLaw.lean#L25) |
-| Countable TV type-mark space | [`VariationMark`:52](PerronWright/Probability/CountableVariationMarks.lean#L52), [distance formula:72](PerronWright/Probability/CountableVariationMarks.lean#L72) |
-
-Detailed definition and declaration indices:
+The per-theorem tables above provide the reading order. These indices expand the definitions and locate additional proof objects; the generated index also includes internal helpers.
 
 - [Enumeration: models, operators, Perron quantities, fields, tree radii, and Wright constants](docs/ENUMERATION_INDEX.md)
 - [Probability: graph sources, densities, Brownian objects, topologies, marks, and normalization](docs/PROBABILITY_INDEX.md)
