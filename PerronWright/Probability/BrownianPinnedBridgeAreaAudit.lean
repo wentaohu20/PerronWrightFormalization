@@ -1,0 +1,48 @@
+import PerronWright.Probability.BrownianPinnedBridgeAreaTilt
+
+/-! # Audit of the genuine continuous signed Brownian bridge area
+
+The literal area Gaussian law, exact T^3/12 variance, endpoint
+independence and actual exponential path tilt are proved from the actual
+constructed Brownian law. This does not identify positive excursion
+area, combinatorial Wright constants, the Palm law or AW-density.
+-/
+
+#print axioms PerronWright.BrownianPinnedBridgeArea.area
+#print axioms PerronWright.BrownianPinnedBridgeArea.timeGrid
+#print axioms PerronWright.BrownianPinnedBridgeArea.timeGrid_le
+#print axioms PerronWright.BrownianPinnedBridgeArea.timeGrid_real
+#print axioms PerronWright.BrownianPinnedBridgeArea.quadrature
+#print axioms PerronWright.BrownianPinnedBridgeArea.quadrature_eq_leftSum
+#print axioms PerronWright.BrownianPinnedBridgeArea.quadrature_tendsto_area
+#print axioms PerronWright.BrownianPinnedBridgeArea.continuous_quadrature
+#print axioms PerronWright.BrownianPinnedBridgeArea.measurable_area
+#print axioms PerronWright.BrownianPinnedBridgeArea.quadrature_variance
+#print axioms PerronWright.BrownianPinnedBridgeArea.quadrature_variance_tendsto
+#print axioms PerronWright.BrownianPinnedBridgeArea.integral_exp_area
+#print axioms PerronWright.BrownianPinnedBridgeArea.hasLaw_area
+#print axioms PerronWright.BrownianPinnedBridgeArea.area_hasGaussianLaw
+#print axioms PerronWright.BrownianPinnedBridgeArea.integral_area
+#print axioms PerronWright.BrownianPinnedBridgeArea.variance_area
+#print axioms PerronWright.BrownianPinnedBridgeArea.area_independent_endpoint
+#print axioms PerronWright.BrownianPinnedBridgeArea.area_endpoint_jointLaw_eq_prod
+#print axioms PerronWright.BrownianPinnedBridgeAreaTilt.integral_exp_mul_area
+#print axioms PerronWright.BrownianPinnedBridgeAreaTilt.integrable_exp_mul_area
+#print axioms PerronWright.BrownianPinnedBridgeAreaTilt.tiltedAreaLaw
+#print axioms PerronWright.BrownianPinnedBridgeAreaTilt.tiltedAreaLaw_isProbability
+#print axioms PerronWright.BrownianPinnedBridgeAreaTilt.tiltedAreaLaw_eq_withDensity
+#print axioms PerronWright.BrownianPinnedBridgeAreaTilt.hasLaw_area_tilted
+#print axioms PerronWright.BrownianPinnedBridgeAreaTilt.integral_area_tilted
+#print axioms PerronWright.BrownianPinnedBridgeAreaTilt.variance_area_tilted
+#print axioms PerronWright.BrownianUniformQuadrature.grid
+#print axioms PerronWright.BrownianUniformQuadrature.leftSum
+#print axioms PerronWright.BrownianUniformQuadrature.grid_step
+#print axioms PerronWright.BrownianUniformQuadrature.grid_zero
+#print axioms PerronWright.BrownianUniformQuadrature.grid_end
+#print axioms PerronWright.BrownianUniformQuadrature.grid_mem
+#print axioms PerronWright.BrownianUniformQuadrature.grid_mono
+#print axioms PerronWright.BrownianUniformQuadrature.integral_sub_leftSum
+#print axioms PerronWright.BrownianUniformQuadrature.quadrature_error_le
+#print axioms PerronWright.BrownianUniformQuadrature.leftSum_tendsto_integral
+#print axioms PerronWright.BrownianUniformQuadrature.grid_quadratic_sum
+

@@ -1,0 +1,6 @@
+import PerronWright.Probability.GraphBrownianGlobalLimit
+
+#print axioms PerronWright.GraphBrownianGlobalLimit.globalTestLaw_tendsto_actual_Brownian
+#print axioms PerronWright.GraphBrownianGlobalLimit.processLimitLaw_eq_actual_Brownian
+#print axioms PerronWright.GraphBrownianGlobalLimit.processLaw_tendsto_actual_Brownian
+#print axioms PerronWright.GraphBrownianGlobalLimit.starredProcessLaw_tendsto_actual_Brownian

@@ -1,0 +1,4 @@
+import PerronWright.Probability.BrownianMinimumSplitCandidateProbability
+
+#print axioms PerronWright.BrownianMinimumSplitCandidateProbability.candidateLaw_univ
+#print axioms PerronWright.BrownianMinimumSplitCandidateProbability.candidateLaw_isProbability

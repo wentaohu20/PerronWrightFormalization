@@ -1,0 +1,55 @@
+import PerronWright.Enumeration.CubicConnectedComponentRecurrence
+
+/-! Complete public audit of the actual size-grouping and recurrence batch. -/
+
+#print axioms PerronWright.GraphCore.halfEdgeRelabel
+#print axioms PerronWright.GraphCore.halfEdgeRelabel_apply
+#print axioms PerronWright.GraphCore.halfEdgeRelabel_symm
+#print axioms PerronWright.GraphCore.halfEdgeRelabelFiberEquiv
+#print axioms PerronWright.GraphCore.halfEdgeRelabel_degree
+#print axioms PerronWright.GraphCore.halfEdgeSupportRelabelIso
+#print axioms PerronWright.GraphCore.uniformHalfEdgeRelabel
+#print axioms PerronWright.GraphCore.uniformHalfEdgeRelabelEquiv
+#print axioms PerronWright.GraphCore.connectedCubicHalfEdgeRelabelEquiv
+#print axioms PerronWright.GraphCore.card_connectedCubicHalfEdgeTable_of_card_eq
+#print axioms PerronWright.GraphCore.card_uniformHalfEdgeAssignment_of_card_eq
+
+#print axioms PerronWright.GraphCore.finiteSetCardEquivFinsetCard
+#print axioms PerronWright.GraphCore.card_finiteSet_of_card
+#print axioms PerronWright.GraphCore.rootSetCardEquivFinsetFilter
+#print axioms PerronWright.GraphCore.card_rootSet_of_card
+#print axioms PerronWright.GraphCore.natCard_set_compl
+
+#print axioms PerronWright.GraphCore.CubicRootSize
+#print axioms PerronWright.GraphCore.cubicRootSizeFintype
+#print axioms PerronWright.GraphCore.CubicRootShapeData
+#print axioms PerronWright.GraphCore.CubicRootSplit.size_index
+#print axioms PerronWright.GraphCore.cubicRootSplitEquivShape
+#print axioms PerronWright.GraphCore.card_cubicRootShapeData
+#print axioms PerronWright.GraphCore.card_cubicOrderedPresentation_eq_scalarRootSum
+
+#print axioms PerronWright.GraphCore.connectedCubicCompensation
+#print axioms PerronWright.GraphCore.connectedCubicCompensation_eq_halfEdgeCard
+#print axioms PerronWright.GraphCore.allCubicCompensation_eq_halfEdgeCard
+#print axioms PerronWright.GraphCore.connectedCubicCompensation_zero
+#print axioms PerronWright.GraphCore.connectedCubicCompensation_one
+#print axioms PerronWright.GraphCore.cubic_pointed_label_factor
+#print axioms PerronWright.GraphCore.cubicCompensation_root_convolution
+#print axioms PerronWright.GraphCore.positiveSurplusWrightConstantReal_eq_connectedCompensation
+
+#print axioms PerronWright.GraphCore.cubicAllSeries
+#print axioms PerronWright.GraphCore.cubicConnectedSeries
+#print axioms PerronWright.GraphCore.cubicEuler
+#print axioms PerronWright.GraphCore.coeff_cubicEuler
+#print axioms PerronWright.GraphCore.cubicEuler_mul
+#print axioms PerronWright.GraphCore.connectedCubicCompensation_pointing_convolution
+#print axioms PerronWright.GraphCore.cubicAllSeries_euler
+#print axioms PerronWright.GraphCore.cubicAllSeries_derivative
+#print axioms PerronWright.GraphCore.cubicAllSeries_ne_zero
+#print axioms PerronWright.GraphCore.cubicAllSeries_differential_equation
+#print axioms PerronWright.GraphCore.cubicConnectedSeries_differential_equation
+#print axioms PerronWright.GraphCore.connectedCubicCompensation_nonlinear_recurrence
+#print axioms PerronWright.GraphCore.sum_labelledCubicKernelInverseMultiplicityReal_nonlinear_recurrence
+#print axioms PerronWright.GraphCore.wrightConstant_eq_literal_connectedCompensation
+#print axioms PerronWright.GraphCore.connectedCubicCompensation_two
+#print axioms PerronWright.GraphCore.connectedCubicCompensation_three

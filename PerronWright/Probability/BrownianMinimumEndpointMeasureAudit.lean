@@ -1,0 +1,18 @@
+import PerronWright.Probability.BrownianMinimumEndpointMeasure
+
+/-! Exact audit of the genuine minimum endpoint density measure and all Borel tests. -/
+
+#print axioms PerronWright.BrownianMinimumEndpointMeasure.minimumTriple
+#print axioms PerronWright.BrownianMinimumEndpointMeasure.measurable_minimumTriple
+#print axioms PerronWright.BrownianMinimumEndpointMeasure.actualLaw
+#print axioms PerronWright.BrownianMinimumEndpointMeasure.actualLaw_isProbability
+#print axioms PerronWright.BrownianMinimumEndpointMeasure.referenceMeasure
+#print axioms PerronWright.BrownianMinimumEndpointMeasure.jointDensity
+#print axioms PerronWright.BrownianMinimumEndpointMeasure.measurable_jointDensity
+#print axioms PerronWright.BrownianMinimumEndpointMeasure.encode
+#print axioms PerronWright.BrownianMinimumEndpointMeasure.measurable_encode
+#print axioms PerronWright.BrownianMinimumEndpointMeasure.candidateLaw
+#print axioms PerronWright.BrownianMinimumEndpointMeasure.lintegral_candidateLaw
+#print axioms PerronWright.BrownianMinimumEndpointMeasure.actualLaw_eq_candidateLaw
+#print axioms PerronWright.BrownianMinimumEndpointMeasure.candidateLaw_isProbability
+#print axioms PerronWright.BrownianMinimumEndpointMeasure.actual_minimum_endpoint_borel_density

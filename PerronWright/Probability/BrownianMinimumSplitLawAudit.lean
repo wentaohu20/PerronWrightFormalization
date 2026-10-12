@@ -1,0 +1,5 @@
+import PerronWright.Probability.BrownianMinimumSplitLaw
+
+#print axioms PerronWright.BrownianMinimumSplitLaw.actual_minimum_split_law
+#print axioms PerronWright.BrownianMinimumSplitLaw.actual_minimum_split_lintegral
+#print axioms PerronWright.BrownianMinimumSplitLaw.actual_reconstructed_source_lintegral

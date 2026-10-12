@@ -1,0 +1,6 @@
+import PerronWright.Probability.BrownianMinimumSplitActualMarginals
+
+#print axioms PerronWright.BrownianMinimumSplitActualMarginals.actual_depth_time_law
+#print axioms PerronWright.BrownianMinimumSplitActualMarginals.actual_minimum_time_law
+#print axioms PerronWright.BrownianMinimumSplitActualMarginals.actual_depth_time_lintegral
+#print axioms PerronWright.BrownianMinimumSplitActualMarginals.actual_minimum_time_lintegral

@@ -1,0 +1,4 @@
+import PerronWright.Probability.BrownianCompletedExcursionStoppedLaw
+
+#print axioms PerronWright.BrownianCompletedExcursionStoppedLaw.actual_returnTaggedPast_law
+#print axioms PerronWright.BrownianCompletedExcursionStoppedLaw.actual_returnTaggedPast_lintegral

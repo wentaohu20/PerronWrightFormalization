@@ -1,0 +1,16 @@
+import PerronWright.Probability.BrownianArbitraryWindowLaw
+
+#print axioms PerronWright.BrownianArbitraryWindowLaw.chartRestriction
+#print axioms PerronWright.BrownianArbitraryWindowLaw.chartRestriction_embedded
+#print axioms PerronWright.BrownianArbitraryWindowLaw.chartRestriction_apply
+#print axioms PerronWright.BrownianArbitraryWindowLaw.measurable_chartRestriction
+#print axioms PerronWright.BrownianArbitraryWindowLaw.pointMeasure
+#print axioms PerronWright.BrownianArbitraryWindowLaw.measurable_pointMeasure
+#print axioms PerronWright.BrownianArbitraryWindowLaw.pointMeasure_embedded
+#print axioms PerronWright.BrownianArbitraryWindowLaw.actualmeasure_integral_eq_window
+#print axioms PerronWright.BrownianArbitraryWindowLaw.law
+#print axioms PerronWright.BrownianArbitraryWindowLaw.law_eq_actual_map
+#print axioms PerronWright.BrownianArbitraryWindowLaw.law_eq_chart_map
+#print axioms PerronWright.BrownianArbitraryWindowLaw.law_map_embedding_eq_compactLaw
+#print axioms PerronWright.BrownianArbitraryWindowLaw.law_canonical
+#print axioms PerronWright.BrownianArbitraryWindowLaw.law_lintegral

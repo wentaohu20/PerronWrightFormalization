@@ -1,0 +1,4 @@
+import PerronWright.Probability.BrownianMinimumFutureReturnMixture
+
+#print axioms PerronWright.BrownianMinimumFutureReturnMixture.actual_firstReturn_prefix_lintegral
+#print axioms PerronWright.BrownianMinimumFutureReturnMixture.actual_firstReturn_endpoint_lintegral

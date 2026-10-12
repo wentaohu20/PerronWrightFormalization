@@ -1,0 +1,8 @@
+import PerronWright.Probability.BrownianPathMinimumUnique
+
+#print axioms PerronWright.BrownianPathSeparatedMinima.endpoint_future_jointLaw
+#print axioms PerronWright.BrownianPathSeparatedMinima.past_gap_future_jointLaw
+#print axioms PerronWright.BrownianPathSeparatedMinima.intervalMinimum_shift_future
+#print axioms PerronWright.BrownianPathSeparatedMinima.ae_separated_interval_minima_ne
+#print axioms PerronWright.BrownianPathMinimumUnique.ae_unique_minimum
+#print axioms PerronWright.BrownianPathMinimumUnique.ae_actual_parabolic_unique_minimum

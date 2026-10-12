@@ -1,0 +1,6 @@
+import PerronWright.Probability.BrownianPositiveTimeAveraging
+
+#print axioms PerronWright.BrownianPositiveTimeAveraging.ae_unitInterval
+#print axioms PerronWright.BrownianPositiveTimeAveraging.scaled_uniform_lintegral
+#print axioms PerronWright.BrownianPositiveTimeAveraging.uniform_lintegral_right_tendsto
+#print axioms PerronWright.BrownianPositiveTimeAveraging.normalized_positive_lintegral_right_tendsto

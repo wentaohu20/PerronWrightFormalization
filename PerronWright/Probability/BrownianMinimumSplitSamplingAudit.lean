@@ -1,0 +1,5 @@
+import PerronWright.Probability.BrownianMinimumSplitSampling
+
+#print axioms PerronWright.BrownianMinimumSplitSampling.sample
+#print axioms PerronWright.BrownianMinimumSplitSampling.continuous_sample
+#print axioms PerronWright.BrownianMinimumSplitSampling.ext_of_finite_sample_tests

@@ -1,0 +1,3 @@
+import PerronWright.Probability.BrownianParabolicMinimumCompletedPassageLaw
+
+#print axioms PerronWright.BrownianParabolicMinimumCompletedPassageLaw.actual_parabolic_completed_passage_source_lintegral

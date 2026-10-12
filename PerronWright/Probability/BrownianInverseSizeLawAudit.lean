@@ -1,0 +1,6 @@
+import PerronWright.Probability.BrownianInverseSizeLaw
+
+#print axioms PerronWright.BrownianInverseSizeLaw.scalePoint_inv_scalePoint
+#print axioms PerronWright.BrownianInverseSizeLaw.scalePoint_scalePoint_inv
+#print axioms PerronWright.BrownianInverseSizeLaw.inverseScaledLaw
+#print axioms PerronWright.BrownianInverseSizeLaw.inverseScaledLaw_map

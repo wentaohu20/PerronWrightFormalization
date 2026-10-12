@@ -1,0 +1,6 @@
+import PerronWright.Probability.BrownianMarkedDeletedCampbellTest
+
+#print axioms PerronWright.BrownianMarkedDeletedCampbellTest.markedDeletedTest
+#print axioms PerronWright.BrownianMarkedDeletedCampbellTest.measurable_markedDeletedTest
+#print axioms PerronWright.BrownianMarkedDeletedCampbellTest.markedDeletedTest_componentState
+#print axioms PerronWright.BrownianMarkedDeletedCampbellTest.actual_marked_deleted_campbell_lintegral

@@ -1,0 +1,7 @@
+import PerronWright.Probability.BrownianArbitraryWindowBoundary
+
+#print axioms PerronWright.BrownianArbitraryWindowBoundary.singleton_cell_lintegral_eq_zero
+#print axioms PerronWright.BrownianArbitraryWindowBoundary.ae_process_singleton_cell_eq_zero
+#print axioms PerronWright.BrownianArbitraryWindowBoundary.ae_process_size_eq_zero
+#print axioms PerronWright.BrownianArbitraryWindowBoundary.ae_boundary_eq_zero
+#print axioms PerronWright.BrownianArbitraryWindowBoundary.ae_sizeSurplusCell_frontier_eq_zero

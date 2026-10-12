@@ -1,0 +1,5 @@
+import PerronWright.Probability.BrownianMinimumFutureWholeLaw
+
+#print axioms PerronWright.BrownianMinimumFutureWholeLaw.actual_source_future_law
+#print axioms PerronWright.BrownianMinimumFutureWholeLaw.actual_source_whole_splice_law
+#print axioms PerronWright.BrownianMinimumFutureWholeLaw.actual_source_whole_lintegral

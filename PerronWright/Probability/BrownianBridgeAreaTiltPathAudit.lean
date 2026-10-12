@@ -1,0 +1,48 @@
+import PerronWright.Probability.BrownianBridgeAreaTiltPathLaw
+
+/-! # Audit of the actual continuous bridge area tilt path law
+
+Actual jointly Gaussian finite tests, calculated cross covariance,
+true area-tilted finite and indexed laws, and compact-open path Borel
+law equality are proved. At tilt one the shifted process is exactly
+the literal pinned parabolic driver. This is not positive-excursion
+conditioning, a Palm identity, a Wright moment formula or AW-density.
+-/
+
+#print axioms PerronWright.BrownianBridgeAreaJointGaussian.combinedTest
+#print axioms PerronWright.BrownianBridgeAreaJointGaussian.combinedVariance
+#print axioms PerronWright.BrownianBridgeAreaJointGaussian.combinedVariance_nonneg
+#print axioms PerronWright.BrownianBridgeAreaJointGaussian.integral_exp_combinedTest
+#print axioms PerronWright.BrownianBridgeAreaJointGaussian.hasLaw_combinedTest
+#print axioms PerronWright.BrownianBridgeAreaJointGaussian.covariance_linearTest_area
+#print axioms PerronWright.BrownianBridgeAreaJointGaussian.covariance_bridge_area
+#print axioms PerronWright.BrownianBridgeAreaJointGaussian.joint_hasGaussianLaw
+#print axioms PerronWright.BrownianBridgeAreaTiltPathLaw.finite_bridge_law_areaTilt
+#print axioms PerronWright.BrownianBridgeAreaTiltPathLaw.indexed_bridge_law_areaTilt
+#print axioms PerronWright.BrownianBridgeAreaTiltPathLaw.whole_bridge_law_areaTilt
+#print axioms PerronWright.BrownianBridgeAreaTiltPathLaw.stoppedBridgePath
+#print axioms PerronWright.BrownianBridgeAreaTiltPathLaw.meanPath
+#print axioms PerronWright.BrownianBridgeAreaTiltPathLaw.shiftedBridgePath
+#print axioms PerronWright.BrownianBridgeAreaTiltPathLaw.measurable_stoppedBridgePath
+#print axioms PerronWright.BrownianBridgeAreaTiltPathLaw.measurable_shiftedBridgePath
+#print axioms PerronWright.BrownianBridgeAreaTiltPathLaw.pathLaw_areaTilt_eq_shift
+#print axioms PerronWright.BrownianBridgeAreaTiltPathLaw.shiftedBridgePath_one_eq_pinnedParabolic
+#print axioms PerronWright.BrownianBridgeAreaTiltPathLaw.pinnedParabolicPath
+#print axioms PerronWright.BrownianBridgeAreaTiltPathLaw.pinnedParabolicPath_eq_shift
+#print axioms PerronWright.BrownianBridgeAreaTiltPathLaw.pathLaw_areaTilt_one_eq_pinnedParabolic
+#print axioms PerronWright.BrownianBridgeAreaTiltPathLaw.weighted_bridgePathLaw_eq_pinnedParabolic
+#print axioms PerronWright.BrownianBridgeAreaTiltPathLaw.hasLaw_bridge_areaTilt
+#print axioms PerronWright.BrownianBridgeAreaTiltPathLaw.covariance_bridge_areaTilt
+#print axioms PerronWright.BrownianBridgeAreaTiltTests.hasLaw_linearTest_areaTilt
+#print axioms PerronWright.BrownianBridgeAreaTiltTests.integral_linearTest_areaTilt
+#print axioms PerronWright.BrownianBridgeAreaTiltTests.variance_linearTest_areaTilt
+#print axioms PerronWright.BrownianBridgeAreaCrossKernel.crossKernel
+#print axioms PerronWright.BrownianBridgeAreaCrossKernel.crossMean
+#print axioms PerronWright.BrownianBridgeAreaCrossKernel.continuous_crossKernel
+#print axioms PerronWright.BrownianBridgeAreaCrossKernel.integral_crossKernel
+#print axioms PerronWright.BrownianBridgeAreaCrossKernel.covariance_bridge_quadrature
+#print axioms PerronWright.BrownianBridgeAreaCrossKernel.covariance_bridge_quadrature_tendsto
+#print axioms PerronWright.BrownianBridgeAreaCrossKernel.testCrossMean
+#print axioms PerronWright.BrownianBridgeAreaCrossKernel.covariance_linearTest_quadrature
+#print axioms PerronWright.BrownianBridgeAreaCrossKernel.covariance_linearTest_quadrature_tendsto
+

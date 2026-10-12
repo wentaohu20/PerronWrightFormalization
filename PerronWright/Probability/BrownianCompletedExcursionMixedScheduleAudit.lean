@@ -1,0 +1,3 @@
+import PerronWright.Probability.BrownianCompletedExcursionMixedSchedule
+
+#print axioms PerronWright.BrownianCompletedExcursionMixedSchedule.mixed_terminal_chain_shape_lintegral

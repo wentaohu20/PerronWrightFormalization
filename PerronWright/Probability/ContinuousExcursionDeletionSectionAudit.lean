@@ -1,0 +1,6 @@
+import PerronWright.Probability.ContinuousExcursionDeletionSection
+
+#print axioms PerronWright.ContinuousExcursionDeletionSection.eraseTime
+#print axioms PerronWright.ContinuousExcursionDeletionSection.surviving_anchor_side
+#print axioms PerronWright.ContinuousExcursionDeletionSection.transported_component
+#print axioms PerronWright.ContinuousExcursionDeletionSection.representativeEquiv_exists

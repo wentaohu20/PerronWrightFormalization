@@ -1,0 +1,38 @@
+# Publish only the verified project, not the working session's scratch files.
+/*
+!/.gitignore
+!/.gitattributes
+!/README.md
+!/lean-toolchain
+!/lakefile.toml
+!/lake-manifest.json
+!/PerronWright.lean
+!/PerronWright/
+!/Build.ps1
+!/Verify.ps1
+!/verify.cmd
+!/verify.sh
+!/MainTheoremDependencies.lean
+!/Audit.lean
+!/ProbabilityAudit.lean
+!/Chapter3FiniteProcessSpatialBridgeAudit.lean
+!/docs/
+
+# Toolchains, downloaded dependencies, generated reports and compiled output.
+.lake/
+.elan-home/
+.verification/
+tmp/
+**/*.olean
+**/*.ilean
+**/*.trace
+**/*.log
+**/.DS_Store
+
+# Secrets must never be staged, even inside allowed directories.
+**/.env
+**/.env.*
+**/*.pem
+**/*.key
+**/*credential*
+**/*token*

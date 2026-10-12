@@ -1,0 +1,25 @@
+import PerronWright.Kernel.CountableApproximationEmpirical
+
+/-! Independent axiom audit for the actual countable-law approximations. -/
+
+#print axioms PerronWright.CountableKernel.norm_weightedActionCLM_sub_le
+#print axioms PerronWright.CountableKernel.norm_weightFeature_sub_baseFeature_sq_le
+#print axioms PerronWright.CountableKernel.weighted_probability_operator_tendsto
+#print axioms PerronWright.CountableKernel.isSymmetric_weightedActionCLM
+#print axioms PerronWright.CountableKernel.weightedSpectralRadius_tendsto_one
+#print axioms PerronWright.CountableKernel.isCompactOperator_weighted_probability_of_finite_support
+#print axioms PerronWright.CountableKernel.finiteLawLift_intertwines
+#print axioms PerronWright.CountableKernel.exists_nonnegative_weighted_perron
+#print axioms PerronWright.CountableKernel.unit_approximate_perron_tendsto
+#print axioms PerronWright.CountableKernel.weighted_perron_tendsto
+#print axioms PerronWright.CountableKernel.finitePerronVector_tendsto
+#print axioms PerronWright.CountableKernel.finitePerronFunction_bounds
+#print axioms PerronWright.CountableKernel.finitePerronFunction_tendsto
+#print axioms PerronWright.CountableKernel.finitePerronFunction_hasSum_one
+#print axioms PerronWright.CountableKernel.finitePerronFunction_eigen
+#print axioms PerronWright.CountableKernel.finiteLaw_eigenvalue_abs_le
+#print axioms PerronWright.CountableKernel.finitePerronMoment_tendsto
+#print axioms PerronWright.CountableKernel.finitePerronAlpha_tendsto
+#print axioms PerronWright.CountableKernel.finitePerronBeta_tendsto
+#print axioms PerronWright.CountableKernel.exists_empirical_spectral_realization
+#print axioms PerronWright.CountableKernel.exists_empirical_perron_moment_realization

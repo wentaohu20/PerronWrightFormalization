@@ -1,0 +1,4 @@
+import PerronWright.Probability.BrownianSmallMinimumTupleLaw
+
+#print axioms PerronWright.BrownianSmallMinimumTupleLaw.actual_smallMinimum_original_test_tendsto
+#print axioms PerronWright.BrownianSmallMinimumTupleLaw.actual_smallMinimum_ordered_test_tendsto

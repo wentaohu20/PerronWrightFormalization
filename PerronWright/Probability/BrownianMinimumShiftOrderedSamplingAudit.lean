@@ -1,0 +1,9 @@
+import PerronWright.Probability.BrownianMinimumShiftOrderedSampling
+
+#print axioms PerronWright.BrownianMinimumShiftOrderedSampling.tailTimes
+#print axioms PerronWright.BrownianMinimumShiftOrderedSampling.tailTimes_strictMono
+#print axioms PerronWright.BrownianMinimumShiftOrderedSampling.tailTimes_first_positive
+#print axioms PerronWright.BrownianMinimumShiftOrderedSampling.tailTimes_last
+#print axioms PerronWright.BrownianMinimumShiftOrderedSampling.cons_tailTimes
+#print axioms PerronWright.BrownianMinimumShiftOrderedSampling.orderedEval_tailTimes
+#print axioms PerronWright.BrownianMinimumShiftOrderedSampling.ae_minimumShiftLaw_stopped_zero

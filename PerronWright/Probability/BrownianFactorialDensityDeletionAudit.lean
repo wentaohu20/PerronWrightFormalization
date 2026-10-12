@@ -1,0 +1,5 @@
+import PerronWright.Probability.BrownianFactorialDensityDeletion
+
+#print axioms PerronWright.BrownianFactorialDensityDeletion.energy_eq_twice_criticalExponent
+#print axioms PerronWright.BrownianFactorialDensityDeletion.criticalExponent_deletion
+#print axioms PerronWright.BrownianFactorialDensityDeletion.density_cons

@@ -1,0 +1,4 @@
+import PerronWright.Probability.BrownianActualFactorialDensity
+
+#print axioms PerronWright.BrownianActualFactorialDensity.actual_ordered_source_factorial_density
+#print axioms PerronWright.BrownianActualFactorialDensity.actual_window_factorial_density

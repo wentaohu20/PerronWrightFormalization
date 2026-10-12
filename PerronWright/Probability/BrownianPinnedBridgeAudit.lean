@@ -1,0 +1,46 @@
+import PerronWright.Probability.BrownianPinnedBridgeTilt
+
+/-! # Audit of actual pinned Brownian bridge finite laws and tilts
+
+The actual constructed Brownian path law is the source. These proofs
+establish bridge Gaussian laws, endpoint independence, literal drift
+pinning, and genuine finite-test exponential tilts. They do not establish
+positive excursion conditioning, an area-Wright identity or AW-density.
+-/
+
+#print axioms PerronWright.BrownianPinnedBridge.bridge
+#print axioms PerronWright.BrownianPinnedBridge.continuous_bridge
+#print axioms PerronWright.BrownianPinnedBridge.continuous_sample_bridge
+#print axioms PerronWright.BrownianPinnedBridge.bridge_isGaussianProcess
+#print axioms PerronWright.BrownianPinnedBridge.bridge_hasGaussianLaw
+#print axioms PerronWright.BrownianPinnedBridge.integral_bridge
+#print axioms PerronWright.BrownianPinnedBridge.covariance_bridge_endpoint
+#print axioms PerronWright.BrownianPinnedBridge.covariance_bridge
+#print axioms PerronWright.BrownianPinnedBridge.variance_bridge
+#print axioms PerronWright.BrownianPinnedBridge.hasLaw_bridge_eval
+#print axioms PerronWright.BrownianPinnedBridge.bridge_process_independent_endpoint
+#print axioms PerronWright.BrownianPinnedBridge.ae_bridge_zero
+#print axioms PerronWright.BrownianPinnedBridge.bridge_endpoint_zero
+#print axioms PerronWright.BrownianPinnedBridge.pinnedParabolic
+#print axioms PerronWright.BrownianPinnedBridge.pinnedParabolic_eq_bridge
+#print axioms PerronWright.BrownianPinnedBridge.hasLaw_pinnedParabolic_eval
+#print axioms PerronWright.BrownianPinnedBridgeFiniteLaw.linearTest
+#print axioms PerronWright.BrownianPinnedBridgeFiniteLaw.quadraticVariance
+#print axioms PerronWright.BrownianPinnedBridgeFiniteLaw.hasGaussianLaw_linearTest
+#print axioms PerronWright.BrownianPinnedBridgeFiniteLaw.integral_linearTest
+#print axioms PerronWright.BrownianPinnedBridgeFiniteLaw.variance_linearTest
+#print axioms PerronWright.BrownianPinnedBridgeFiniteLaw.quadraticVariance_nonneg
+#print axioms PerronWright.BrownianPinnedBridgeFiniteLaw.hasLaw_linearTest
+#print axioms PerronWright.BrownianPinnedBridgeFiniteLaw.integral_exp_linearTest
+#print axioms PerronWright.BrownianPinnedBridgeFiniteLaw.finiteLaw
+#print axioms PerronWright.BrownianPinnedBridgeFiniteLaw.hasLaw_finite
+#print axioms PerronWright.BrownianPinnedBridgeFiniteLaw.finite_bridge_independent_endpoint
+#print axioms PerronWright.BrownianPinnedBridgeFiniteLaw.finite_endpoint_jointLaw_eq_prod
+#print axioms PerronWright.BrownianPinnedBridgeTilt.continuous_linearTest
+#print axioms PerronWright.BrownianPinnedBridgeTilt.integral_exp_mul_linearTest
+#print axioms PerronWright.BrownianPinnedBridgeTilt.integrable_exp_mul_linearTest
+#print axioms PerronWright.BrownianPinnedBridgeTilt.tiltedLaw
+#print axioms PerronWright.BrownianPinnedBridgeTilt.tiltedLaw_isProbability
+#print axioms PerronWright.BrownianPinnedBridgeTilt.tiltedLaw_eq_withDensity
+#print axioms PerronWright.BrownianPinnedBridgeTilt.hasLaw_linearTest_tilted
+

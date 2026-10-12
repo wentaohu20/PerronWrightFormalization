@@ -1,0 +1,4 @@
+import PerronWright.Probability.BrownianInverseWindowLaw
+
+#print axioms PerronWright.BrownianInverseWindowLaw.law
+#print axioms PerronWright.BrownianInverseWindowLaw.globalTestLaw_eq_window_map

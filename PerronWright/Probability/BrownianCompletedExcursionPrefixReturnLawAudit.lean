@@ -1,0 +1,3 @@
+import PerronWright.Probability.BrownianCompletedExcursionPrefixReturnLaw
+
+#print axioms PerronWright.BrownianCompletedExcursionPrefixReturnLaw.actual_prefix_return_shape_lintegral

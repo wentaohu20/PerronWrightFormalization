@@ -1,0 +1,7 @@
+import PerronWright.Probability.BrownianWindowCellTupleGeometry
+
+#print axioms PerronWright.BrownianWindowCellTupleGeometry.mixedStatistic
+#print axioms PerronWright.BrownianWindowCellTupleGeometry.measurable_mixedStatistic
+#print axioms PerronWright.BrownianWindowCellTupleGeometry.mixedStatistic_nonneg
+#print axioms PerronWright.BrownianWindowCellTupleGeometry.window_mixedStatistic_eq_statistic_sum
+#print axioms PerronWright.BrownianWindowCellTupleGeometry.ae_window_mixedStatistic_eq_statistic_sum

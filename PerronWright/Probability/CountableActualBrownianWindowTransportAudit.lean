@@ -1,0 +1,3 @@
+import PerronWright.Probability.CountableActualBrownianWindowTransport
+
+#print axioms PerronWright.CountableActualBrownianWindowTransport.inverse_window_map_eq_actual

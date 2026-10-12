@@ -1,0 +1,28 @@
+import PerronWright.Probability.BrownianKilledGreenKernel
+
+#print axioms PerronWright.BrownianHeatPassageTail.heatReal
+#print axioms PerronWright.BrownianHeatPassageTail.heat
+#print axioms PerronWright.BrownianHeatPassageTail.measurable_heat
+#print axioms PerronWright.BrownianHeatPassageTail.densityReal_eq_heat
+#print axioms PerronWright.BrownianHeatPassageTail.hasDerivAt_neg_heatReal
+#print axioms PerronWright.BrownianHeatPassageTail.heatReal_tendsto_zero
+#print axioms PerronWright.BrownianHeatPassageTail.integrableOn_level_densityReal
+#print axioms PerronWright.BrownianHeatPassageTail.integral_level_densityReal
+#print axioms PerronWright.BrownianHeatPassageTail.lintegral_level_density
+#print axioms PerronWright.BrownianHeatResolvent.measurable_joint_passageDensity
+#print axioms PerronWright.BrownianHeatResolvent.lintegral_passageDensity_laplace
+#print axioms PerronWright.BrownianHeatResolvent.heatResolvent
+#print axioms PerronWright.BrownianHeatResolvent.heatResolvent_eq_level_tail
+#print axioms PerronWright.BrownianHeatResolvent.heatResolvent_eq
+#print axioms PerronWright.BrownianHeatResolvent.heat_even
+#print axioms PerronWright.BrownianHeatResolvent.heat_abs
+#print axioms PerronWright.BrownianHeatResolvent.heatResolvent_eq_abs
+#print axioms PerronWright.BrownianHeatResolvent.heatResolvent_ne_top
+#print axioms PerronWright.BrownianKilledGreenKernel.realDensity_zero_add_heat
+#print axioms PerronWright.BrownianKilledGreenKernel.resolvent_zero_add_heatResolvent
+#print axioms PerronWright.BrownianKilledGreenKernel.greenReal
+#print axioms PerronWright.BrownianKilledGreenKernel.greenReal_nonneg
+#print axioms PerronWright.BrownianKilledGreenKernel.resolvent_zero_eq_green
+#print axioms PerronWright.BrownianKilledGreenKernel.green
+#print axioms PerronWright.BrownianKilledGreenKernel.resolvent_zero_eq
+#print axioms PerronWright.BrownianKilledGreenKernel.resolvent_zero_ne_top

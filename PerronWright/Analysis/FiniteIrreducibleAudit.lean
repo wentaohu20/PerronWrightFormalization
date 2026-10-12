@@ -1,0 +1,21 @@
+import PerronWright.Model.FiniteIrreducibleBipartite
+import PerronWright.Analysis.FiniteIrreducibleComplement
+
+/-! Axiom audit of the genuine irreducible finite spectral foundations. -/
+
+#print axioms PerronWright.FiniteIrreducibleModel.measure_isProbability
+#print axioms PerronWright.FiniteIrreducibleModel.symmetricMatrix_eq_conjugate
+#print axioms PerronWright.FiniteIrreducibleModel.spectrum_operator
+#print axioms PerronWright.FiniteIrreducibleModel.norm_operator_eq_one
+#print axioms PerronWright.FiniteIrreducibleModel.exists_nonnegative_fixed
+#print axioms PerronWright.FiniteIrreducibleModel.nonnegative_fixed_pos
+#print axioms PerronWright.FiniteIrreducibleModel.exists_positive_fixed
+#print axioms PerronWright.FiniteIrreducibleModel.fixed_eq_scalar_multiple
+#print axioms PerronWright.FiniteIrreducibleModel.genEigenspace_one_finrank
+#print axioms PerronWright.FiniteIrreducibleModel.toHilbert_intertwines
+#print axioms PerronWright.FiniteIrreducibleModel.existsUnique_normalized_positive_fixed_function
+#print axioms PerronWright.FiniteIrreducibleModel.alpha_pos
+#print axioms PerronWright.FiniteIrreducibleModel.beta_pos
+#print axioms PerronWright.FiniteIrreducibleModel.fixedComplement_one_sub_isUnit
+#print axioms PerronWright.FiniteIrreducibleModel.bipartite_critical
+#print axioms PerronWright.FiniteIrreducibleModel.bipartite_has_negative_unit_eigenvalue

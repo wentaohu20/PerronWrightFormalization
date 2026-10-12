@@ -1,0 +1,9 @@
+import PerronWright.Probability.BrownianMinimumTuplePinningLaw
+
+/-! Exact public proof dependency audit. -/
+
+#print axioms PerronWright.BrownianMinimumTuplePinningLaw.measurable_candidate
+#print axioms PerronWright.BrownianMinimumTuplePinningLaw.translate_endpoint_original_density
+#print axioms PerronWright.BrownianMinimumTuplePinningLaw.volume_endpoint_weighted_original_density
+#print axioms PerronWright.BrownianMinimumTuplePinningLaw.ae_gaussian_pinnedTest_eq_candidate
+#print axioms PerronWright.BrownianMinimumTuplePinningLaw.actual_pinned_original_coordinate_density

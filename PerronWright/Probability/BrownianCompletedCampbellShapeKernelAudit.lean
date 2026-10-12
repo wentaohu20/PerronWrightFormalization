@@ -1,0 +1,6 @@
+import PerronWright.Probability.BrownianCompletedCampbellShapeKernel
+
+#print axioms PerronWright.BrownianCompletedCampbellShapeKernel.shapeKernel
+#print axioms PerronWright.BrownianCompletedCampbellShapeKernel.measurable_shapeKernel
+#print axioms PerronWright.BrownianCompletedCampbellShapeKernel.shapeKernel_div
+#print axioms PerronWright.BrownianCompletedCampbellShapeKernel.actual_completed_campbell_normalized_shape_lintegral

@@ -1,0 +1,25 @@
+import PerronWright.Probability.BrownianBridgeNegativeMinimum
+
+/-! Actual Brownian bridge negative-minimum audit. All public declarations
+in the three new proof leaves are checked. No unique-minimum, positive
+excursion, Vervaat, Palm, Wright or Aldous theorem is assumed.
+-/
+
+#print axioms PerronWright.BrownianBridgeCycleMinima.cycle_closedBridge_value_covers
+#print axioms PerronWright.BrownianBridgeCycleMinima.fixedMinimumEvent
+#print axioms PerronWright.BrownianBridgeCycleMinima.measurableSet_fixedMinimumEvent
+#print axioms PerronWright.BrownianBridgeCycleMinima.nonnegativePaths
+#print axioms PerronWright.BrownianBridgeCycleMinima.measurableSet_nonnegativePaths
+#print axioms PerronWright.BrownianBridgeCycleMinima.cyclicBridgePath_nonnegative_iff_minimum
+#print axioms PerronWright.BrownianBridgeCycleMinima.cyclicBridgePath_zero_eq_closed
+#print axioms PerronWright.BrownianBridgeCycleMinima.fixedMinimumEvent_measure_eq
+#print axioms PerronWright.BrownianBridgeDiffuseIncrements.hasLaw_rotation_eval
+#print axioms PerronWright.BrownianBridgeDiffuseIncrements.ae_rotation_ne_zero
+#print axioms PerronWright.BrownianBridgeDiffuseIncrements.ae_closedBridge_values_ne
+#print axioms PerronWright.BrownianBridgeNegativeMinimum.minimumGrid
+#print axioms PerronWright.BrownianBridgeNegativeMinimum.minimumGrid_lt
+#print axioms PerronWright.BrownianBridgeNegativeMinimum.minimumGrid_injective
+#print axioms PerronWright.BrownianBridgeNegativeMinimum.fixedMinimumEvent_zero_measure
+#print axioms PerronWright.BrownianBridgeNegativeMinimum.ae_bridgeMinimumValue_negative
+#print axioms PerronWright.BrownianBridgeNegativeMinimum.ae_bridgeMinimumTime_interior
+#print axioms PerronWright.BrownianBridgeNegativeMinimum.ae_actual_bridge_negative_minimum

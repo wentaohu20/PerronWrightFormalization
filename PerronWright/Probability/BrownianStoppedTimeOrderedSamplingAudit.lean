@@ -1,0 +1,4 @@
+import PerronWright.Probability.BrownianStoppedTimeOrderedSampling
+
+#print axioms PerronWright.BrownianStoppedTimeOrderedSampling.exists_ordered_extension
+#print axioms PerronWright.BrownianStoppedTimeOrderedSampling.ext_of_ordered_sample_tests

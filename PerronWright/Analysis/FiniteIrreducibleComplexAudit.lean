@@ -1,0 +1,34 @@
+import PerronWright.Analysis.FiniteIrreducibleComplexFold
+import PerronWright.Analysis.FiniteIrreducibleComplexPeriodicity
+import PerronWright.Analysis.FiniteIrreducibleComplexCanonical
+
+/-! Axiom audit for the literal finite analytic bridge, including periodic models. -/
+
+#print axioms PerronWright.FiniteIrreducibleModel.measure_isOpenPos
+#print axioms PerronWright.FiniteIrreducibleModel.integral_measure
+#print axioms PerronWright.FiniteIrreducibleModel.continuous_action_apply
+#print axioms PerronWright.FiniteIrreducibleModel.degree_eq_weighted_sum
+#print axioms PerronWright.FiniteIrreducibleModel.continuous_complexAction_apply
+#print axioms PerronWright.FiniteIrreducibleModel.hilbertToL2_inner
+#print axioms PerronWright.FiniteIrreducibleModel.hilbertToL2_surjective
+#print axioms PerronWright.FiniteIrreducibleModel.l2Operator_associated
+#print axioms PerronWright.FiniteIrreducibleModel.l2Operator_isCompact
+#print axioms PerronWright.FiniteIrreducibleModel.l2Operator_isSymmetric
+#print axioms PerronWright.FiniteIrreducibleModel.norm_l2Operator
+#print axioms PerronWright.FiniteIrreducibleModel.bjrModel_b1
+#print axioms PerronWright.FiniteIrreducibleModel.complexPerronFunction_fixed
+#print axioms PerronWright.FiniteIrreducibleModel.complex_fixed_eq_scalar_multiple
+#print axioms PerronWright.FiniteIrreducibleModel.weightedFunctional_action
+#print axioms PerronWright.FiniteIrreducibleModel.normalizedPerronFunctional_perronFunction
+#print axioms PerronWright.FiniteIrreducibleModel.augmented_kernel_isUnit
+#print axioms PerronWright.FiniteIrreducibleModel.augmentedKernelInverse_right_inverse
+#print axioms PerronWright.FiniteIrreducibleModel.complement_inverse_bounded
+#print axioms PerronWright.FiniteIrreducibleModel.treeResidual_kernel
+#print axioms PerronWright.FiniteIrreducibleModel.treeResidual_first_scalar
+#print axioms PerronWright.FiniteIrreducibleModel.treeResidual_second_scalar
+#print axioms PerronWright.FiniteIrreducibleModel.foldBaseDerivative_invertible
+#print axioms PerronWright.FiniteIrreducibleModel.foldCurve_germ
+#print axioms PerronWright.FiniteIrreducibleModel.bjrModel_not_b2_of_negative_unit_eigenvalue
+#print axioms PerronWright.FiniteIrreducibleModel.bipartite_bjrModel_not_b2
+#print axioms PerronWright.FiniteIrreducibleModel.discreteBJRModel_b1
+#print axioms PerronWright.FiniteIrreducibleModel.discreteBJRModel_not_b2_of_negative_unit_eigenvalue

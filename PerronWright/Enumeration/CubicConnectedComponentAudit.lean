@@ -1,0 +1,66 @@
+import PerronWright.Enumeration.CubicConnectedComponentLiteralConstant
+
+/-! Complete public declaration audit of the actual root-component batch. -/
+
+#print axioms PerronWright.GraphCore.labelledHalfEdgeSupport
+#print axioms PerronWright.GraphCore.CutHalfEdgeTable
+#print axioms PerronWright.GraphCore.CutHalfEdgePair
+#print axioms PerronWright.GraphCore.cutTableInside
+#print axioms PerronWright.GraphCore.cutTableOutside
+#print axioms PerronWright.GraphCore.assembleCutHalfEdges
+#print axioms PerronWright.GraphCore.assembleCutHalfEdges_supported
+#print axioms PerronWright.GraphCore.assembledCutTable
+#print axioms PerronWright.GraphCore.cutHalfEdgeTableEquivPair
+#print axioms PerronWright.GraphCore.cutInsideDegreeFiberEquiv
+#print axioms PerronWright.GraphCore.cutOutsideDegreeFiberEquiv
+#print axioms PerronWright.GraphCore.cutTableInside_degree
+#print axioms PerronWright.GraphCore.cutTableOutside_degree
+#print axioms PerronWright.GraphCore.cutTable_uniform_degree_iff
+
+#print axioms PerronWright.GraphCore.cutTableInside_support_eq_induce
+#print axioms PerronWright.GraphCore.cutTable_support_closed
+#print axioms PerronWright.GraphCore.cutTable_reachable_mem
+#print axioms PerronWright.GraphCore.cutTable_reachable_iff_mem
+#print axioms PerronWright.GraphCore.rootHalfEdgeVertices
+#print axioms PerronWright.GraphCore.rootHalfEdgeEdges
+#print axioms PerronWright.GraphCore.mem_rootHalfEdgeVertices_iff
+#print axioms PerronWright.GraphCore.root_mem_rootHalfEdgeVertices
+#print axioms PerronWright.GraphCore.halfEdge_sides_reachable
+#print axioms PerronWright.GraphCore.rootHalfEdge_side_mem_iff
+#print axioms PerronWright.GraphCore.rootCutHalfEdgeTable
+#print axioms PerronWright.GraphCore.rootCutHalfEdgeTable_inside_connected
+#print axioms PerronWright.GraphCore.rootCutHalfEdgeTable_reassemble
+#print axioms PerronWright.GraphCore.rootHalfEdgeVertices_of_connected_cut
+#print axioms PerronWright.GraphCore.rootHalfEdgeEdges_of_connected_cut
+#print axioms PerronWright.GraphCore.uniform_halfEdge_degree_card
+#print axioms PerronWright.GraphCore.cubic_root_component_cardinalities
+
+#print axioms PerronWright.GraphCore.orderedPresentationHalfEdges_support
+#print axioms PerronWright.GraphCore.CubicRootSplit
+#print axioms PerronWright.GraphCore.CubicRootSplit.cutTable
+#print axioms PerronWright.GraphCore.CubicRootSplit.cutTable_inside
+#print axioms PerronWright.GraphCore.CubicRootSplit.cutTable_outside
+#print axioms PerronWright.GraphCore.assembleCubicRootSplit
+#print axioms PerronWright.GraphCore.CubicRootSplit.vertices_recovered
+#print axioms PerronWright.GraphCore.CubicRootSplit.edges_recovered
+#print axioms PerronWright.GraphCore.splitCubicRootComponent
+#print axioms PerronWright.GraphCore.assemble_splitCubicRootComponent
+#print axioms PerronWright.GraphCore.assembleCutHalfEdges_injective
+#print axioms PerronWright.GraphCore.assembleCubicRootSplit_injective
+#print axioms PerronWright.GraphCore.cubicHalfEdgeRootDecompositionEquiv
+#print axioms PerronWright.GraphCore.cubicRootSplitFintype
+#print axioms PerronWright.GraphCore.card_cubicHalfEdgeRootDecomposition
+#print axioms PerronWright.GraphCore.cubicOrderedRootDecompositionEquiv
+#print axioms PerronWright.GraphCore.CubicRootSplit.cardinalities
+
+#print axioms PerronWright.GraphCore.ConnectedCubicHalfEdgeTable
+#print axioms PerronWright.GraphCore.cubicRootSplitEquivSigmaPair
+#print axioms PerronWright.GraphCore.card_cubicRootSplit_eq_sum_products
+#print axioms PerronWright.GraphCore.card_cubicOrderedPresentation_eq_rootComponentSum
+#print axioms PerronWright.GraphCore.allCubicCompensation_eq_rootComponentSum
+
+#print axioms PerronWright.GraphCore.connectedCubicOrderedToHalfEdges
+#print axioms PerronWright.GraphCore.connectedCubicOrderedToHalfEdges_bijective
+#print axioms PerronWright.GraphCore.connectedCubicOrderedEquivHalfEdges
+#print axioms PerronWright.GraphCore.sum_labelledCubicKernelInverseMultiplicityReal_eq_connectedHalfEdgeCard
+#print axioms PerronWright.GraphCore.positiveSurplusWrightConstantReal_eq_connectedHalfEdgeCard

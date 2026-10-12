@@ -1,0 +1,4 @@
+import PerronWright.Probability.BrownianParabolicMinimumSplitPassageLaw
+
+#print axioms PerronWright.BrownianParabolicMinimumSplitPassageLaw.ae_splitDensity_eq_stopped_future
+#print axioms PerronWright.BrownianParabolicMinimumSplitPassageLaw.actual_parabolic_passage_source_lintegral

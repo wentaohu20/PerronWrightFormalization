@@ -1,0 +1,6 @@
+import PerronWright.Probability.InverseWindowSizeRescaling
+
+#print axioms PerronWright.InverseWindowSizeRescaling.inverseWindowScaleMap
+#print axioms PerronWright.InverseWindowSizeRescaling.continuous_inverseWindowScaleMap
+#print axioms PerronWright.InverseWindowSizeRescaling.count_map_inverseWindowScaleMap
+#print axioms PerronWright.InverseWindowSizeRescaling.countLaw_map_inverseWindowScaleMap

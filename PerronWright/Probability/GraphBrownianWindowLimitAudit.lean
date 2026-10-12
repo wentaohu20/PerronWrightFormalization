@@ -1,0 +1,5 @@
+import PerronWright.Probability.GraphBrownianWindowLimit
+
+#print axioms PerronWright.GraphBrownianWindowLimit.disjoint_countLaw_tendsto
+#print axioms PerronWright.GraphBrownianWindowLimit.overlapping_countLaw_tendsto
+#print axioms PerronWright.GraphBrownianWindowLimit.windowLaw_tendsto_actual_Brownian

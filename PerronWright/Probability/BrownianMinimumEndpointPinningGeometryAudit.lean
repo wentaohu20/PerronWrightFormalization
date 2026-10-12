@@ -1,0 +1,10 @@
+import PerronWright.Probability.BrownianMinimumEndpointPinningGeometry
+
+/-! Exact audit of the actual bridge--Gaussian minimum pinning geometry. -/
+
+#print axioms PerronWright.BrownianMinimumEndpointPinningGeometry.minimumTriple_stoppedPath
+#print axioms PerronWright.BrownianMinimumEndpointPinningGeometry.pinnedTest
+#print axioms PerronWright.BrownianMinimumEndpointPinningGeometry.measurable_pinnedTest
+#print axioms PerronWright.BrownianMinimumEndpointPinningGeometry.pinnedTest_tendsto
+#print axioms PerronWright.BrownianMinimumEndpointPinningGeometry.actual_endpoint_weighted_minimum_density
+#print axioms PerronWright.BrownianMinimumEndpointPinningGeometry.eq_at_zero_of_ae_eq_of_tendsto

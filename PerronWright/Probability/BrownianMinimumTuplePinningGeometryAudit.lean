@@ -1,0 +1,12 @@
+import PerronWright.Probability.BrownianMinimumTuplePinningGeometry
+
+/-! Exact public proof dependency audit. -/
+
+#print axioms PerronWright.BrownianMinimumTuplePinningGeometry.weightedTest
+#print axioms PerronWright.BrownianMinimumTuplePinningGeometry.weightedTest_nonneg
+#print axioms PerronWright.BrownianMinimumTuplePinningGeometry.weightedTest_timeCutoff
+#print axioms PerronWright.BrownianMinimumTuplePinningGeometry.originalTriple_stoppedPath
+#print axioms PerronWright.BrownianMinimumTuplePinningGeometry.pinnedTest
+#print axioms PerronWright.BrownianMinimumTuplePinningGeometry.measurable_pinnedTest
+#print axioms PerronWright.BrownianMinimumTuplePinningGeometry.pinnedTest_tendsto
+#print axioms PerronWright.BrownianMinimumTuplePinningGeometry.actual_endpoint_weighted_original_density

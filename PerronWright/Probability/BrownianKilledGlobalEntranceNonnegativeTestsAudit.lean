@@ -1,0 +1,3 @@
+import PerronWright.Probability.BrownianKilledGlobalEntranceNonnegativeTests
+
+#print axioms PerronWright.BrownianKilledGlobalEntranceNonnegativeTests.normalized_law_nonnegative_test_tendsto

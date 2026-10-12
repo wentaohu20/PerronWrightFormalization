@@ -1,0 +1,12 @@
+import PerronWright.Probability.FiniteIrreducibleMarkedPointLawLimit
+
+/-! # Actual finite irreducible marked full weak-limit terminal audit -/
+
+#print axioms PerronWright.FiniteIrreducibleMarkedPointLawLimit.exists_unique_unmarked_and_markedWindowLaw_limit
+#print axioms PerronWright.FiniteIrreducibleMarkedPointLawLimit.exists_unique_markedWindowLaw_limit
+#print axioms PerronWright.FiniteIrreducibleMarkedPointLawLimit.canonicalGlobalMarkedLimitLaw
+#print axioms PerronWright.FiniteIrreducibleMarkedPointLawLimit.tendsto_markedProcessLaw_canonical
+#print axioms PerronWright.FiniteIrreducibleMarkedPointLawLimit.exists_unique_markedProcessLaw_limit
+#print axioms PerronWright.FiniteIrreducibleMarkedPointLawLimit.exists_unique_unmarked_and_markedProcessLaw_limit
+#print axioms PerronWright.FiniteIrreducibleMarkedPointLawLimit.marked_graph_test_expectation_tendsto
+

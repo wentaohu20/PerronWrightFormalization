@@ -1,0 +1,7 @@
+import PerronWright.Probability.BrownianMinimumFutureEndpointLaw
+
+#print axioms PerronWright.BrownianMinimumFutureEndpointLaw.endpointDensity
+#print axioms PerronWright.BrownianMinimumFutureEndpointLaw.measurable_endpointDensity
+#print axioms PerronWright.BrownianMinimumFutureEndpointLaw.unit_entrance_eq_scaled_endpointDensity
+#print axioms PerronWright.BrownianMinimumFutureEndpointLaw.actual_endpoint_lintegral
+#print axioms PerronWright.BrownianMinimumFutureEndpointLaw.actual_endpoint_law

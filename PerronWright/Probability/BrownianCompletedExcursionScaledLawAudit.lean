@@ -1,0 +1,4 @@
+import PerronWright.Probability.BrownianCompletedExcursionScaledLaw
+
+#print axioms PerronWright.BrownianCompletedExcursionScaledLaw.actual_scaled_returnTaggedPast_law
+#print axioms PerronWright.BrownianCompletedExcursionScaledLaw.actual_scaled_returnTaggedPast_lintegral

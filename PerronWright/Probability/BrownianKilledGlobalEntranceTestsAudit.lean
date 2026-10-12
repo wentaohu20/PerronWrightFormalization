@@ -1,0 +1,11 @@
+import PerronWright.Probability.BrownianKilledGlobalEntranceTests
+
+/-! Exact audit of genuine global killed entrance tests and actual mass limits. -/
+
+#print axioms PerronWright.BrownianKilledGlobalEntranceTests.integrable_envelopeReal
+#print axioms PerronWright.BrownianKilledGlobalEntranceTests.normalized_law_real_test_eq_density
+#print axioms PerronWright.BrownianKilledGlobalEntranceTests.normalized_law_bounded_continuous_test_tendsto
+#print axioms PerronWright.BrownianKilledGlobalEntranceTests.integrable_entranceReal
+#print axioms PerronWright.BrownianKilledGlobalEntranceTests.lintegral_entrance_ne_top
+#print axioms PerronWright.BrownianKilledGlobalEntranceTests.normalized_survival_mass_tendsto
+#print axioms PerronWright.BrownianKilledGlobalEntranceTests.normalized_survival_path_mass_tendsto

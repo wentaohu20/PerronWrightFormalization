@@ -1,0 +1,8 @@
+import PerronWright.Probability.BrownianMinimumEndpointLevelLimit
+
+/-! Exact audit of the actual endpoint entrance exchange through depth. -/
+
+#print axioms PerronWright.BrownianMinimumEndpointLevelLimit.endpointKernel
+#print axioms PerronWright.BrownianMinimumEndpointLevelLimit.measurable_endpointKernel
+#print axioms PerronWright.BrownianMinimumEndpointLevelLimit.endpointKernel_tendsto
+#print axioms PerronWright.BrownianMinimumEndpointLevelLimit.level_endpointKernel_tendsto

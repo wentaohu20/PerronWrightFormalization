@@ -1,0 +1,4 @@
+import PerronWright.Probability.BrownianMinimumFutureCompleteReturnTilt
+
+#print axioms PerronWright.BrownianMinimumFutureCompleteReturnTilt.actual_positive_prefix_complete_return_tilt
+#print axioms PerronWright.BrownianMinimumFutureCompleteReturnTilt.actual_scaled_source_complete_return_lintegral

@@ -1,0 +1,18 @@
+import PerronWright.Probability.FiniteIrreducibleLocalMainTerminal
+
+/-! # Audit of the literal deterministic finite local-main terminal
+
+The genuine fixed-type graph factorial expectation, uniform arbitrary
+count-realization theorem, literal raw-time/floor theorem and directed
+limits are audited. No point-process or Brownian identification is made.
+-/
+
+#print axioms PerronWright.FiniteIrreducibleLocalMainIdentity.scaledFactorialExpectation
+#print axioms PerronWright.FiniteIrreducibleLocalMainIdentity.scaledFactorialExpectation_eq_numericalFactor_mul_integral
+#print axioms PerronWright.FiniteIrreducibleLocalMainUniform.eventually_uniform_factorial_expectation_density
+#print axioms PerronWright.FiniteIrreducibleLocalMainUniform.eventually_uniform_floor_factorial_expectation_density
+#print axioms PerronWright.FiniteIrreducibleLocalMainTerminal.eventually_uniform_paper_floor_factorial_density
+#print axioms PerronWright.FiniteIrreducibleLocalMainTerminal.eventually_uniform_floor_factorial_density_of_assignment
+#print axioms PerronWright.FiniteIrreducibleLocalMainTerminal.tendsto_factorial_density_of_counts
+#print axioms PerronWright.FiniteIrreducibleLocalMainTerminal.tendsto_floor_factorial_density_of_counts
+

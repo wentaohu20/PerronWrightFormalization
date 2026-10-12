@@ -1,0 +1,6 @@
+import PerronWright.Probability.BrownianExcursionDeletionWeights
+
+#print axioms PerronWright.BrownianExcursionDeletionWeights.survivingRepresentatives
+#print axioms PerronWright.BrownianExcursionDeletionWeights.remainingRepresentatives
+#print axioms PerronWright.BrownianExcursionDeletionWeights.surviving_area_equiv_exists
+#print axioms PerronWright.BrownianExcursionDeletionWeights.surviving_poisson_tuple_sum

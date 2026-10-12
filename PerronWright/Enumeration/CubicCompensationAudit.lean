@@ -1,0 +1,53 @@
+import PerronWright.Enumeration.CubicCompensationInitialCoefficient
+
+/-! Public declaration audit for the literal finite cubic compensation batch. -/
+
+#print axioms PerronWright.GraphCore.OrderedEndpointFiber
+#print axioms PerronWright.GraphCore.card_orderedEndpointFiber
+#print axioms PerronWright.GraphCore.OrderedMultiGraphPresentation
+#print axioms PerronWright.GraphCore.MultiGraphLoopEdge
+#print axioms PerronWright.GraphCore.card_orderedMultiGraphPresentation_mul_loopPower
+#print axioms PerronWright.GraphCore.ConnectedCubicOrderedPresentation
+#print axioms PerronWright.GraphCore.connectedCubicOrderedPresentationFintype
+#print axioms PerronWright.GraphCore.labelledCubicKernelInverseMultiplicityReal_eq_orderedCard
+#print axioms PerronWright.GraphCore.sum_labelledCubicKernelInverseMultiplicityReal_eq_orderedCard
+#print axioms PerronWright.GraphCore.positiveSurplusCubicEGFConstantReal_eq_orderedCard
+#print axioms PerronWright.GraphCore.positiveSurplusWrightConstantReal_eq_orderedCard
+
+#print axioms PerronWright.GraphCore.halfEdgeExponent
+#print axioms PerronWright.GraphCore.halfEdgeExponent_apply
+#print axioms PerronWright.GraphCore.prod_halfEdge_variables
+#print axioms PerronWright.GraphCore.card_halfEdgeExponent_fiber
+#print axioms PerronWright.GraphCore.card_halfEdgeExponent_fiber_eq_multinomial
+#print axioms PerronWright.GraphCore.UniformHalfEdgeAssignment
+#print axioms PerronWright.GraphCore.card_uniformHalfEdgeAssignment_mul_factorialPower
+#print axioms PerronWright.GraphCore.CubicHalfEdgeSlot
+#print axioms PerronWright.GraphCore.card_cubicHalfEdgeSlot
+#print axioms PerronWright.GraphCore.card_cubicHalfEdgeAssignment_mul_sixPower
+
+#print axioms PerronWright.GraphCore.halfEdgeMultiGraph
+#print axioms PerronWright.GraphCore.halfEdgeMultiGraph_degree
+#print axioms PerronWright.GraphCore.orderedPresentationHalfEdges
+#print axioms PerronWright.GraphCore.halfEdgeMultiGraph_orderedPresentation
+#print axioms PerronWright.GraphCore.LabelledCubicKernel
+#print axioms PerronWright.GraphCore.CubicOrderedPresentation
+#print axioms PerronWright.GraphCore.cubicOrderedPresentationToHalfEdges
+#print axioms PerronWright.GraphCore.cubicOrderedPresentationToHalfEdges_bijective
+#print axioms PerronWright.GraphCore.cubicOrderedPresentationEquivHalfEdges
+#print axioms PerronWright.GraphCore.card_cubicOrderedPresentation_mul_sixPower
+#print axioms PerronWright.GraphCore.allCubicCompensation
+#print axioms PerronWright.GraphCore.allCubicCompensation_eq_orderedCard
+#print axioms PerronWright.GraphCore.allCubicCompensation_eq_factorials
+
+#print axioms PerronWright.GraphCore.two_vertex_cubic_has_cross_edge
+#print axioms PerronWright.GraphCore.two_vertex_cubic_connected
+#print axioms PerronWright.GraphCore.connectedCubicKernelOneEquivAll
+#print axioms PerronWright.GraphCore.connectedCubicOrderedPresentation_one_card
+#print axioms PerronWright.GraphCore.sum_labelledCubicKernelInverseMultiplicityReal_one
+#print axioms PerronWright.GraphCore.positiveSurplusCubicEGFConstantReal_one_exact
+#print axioms PerronWright.GraphCore.positiveSurplusWrightConstantReal_one_exact
+#print axioms PerronWright.GraphCore.allCubicCompensation_zero
+#print axioms PerronWright.GraphCore.allCubicCompensation_one
+#print axioms PerronWright.GraphCore.allCubicCompensation_recurrence
+#print axioms PerronWright.GraphCore.positiveSurplusWrightConstantReal_one
+#print axioms PerronWright.GraphCore.wrightConstant_two

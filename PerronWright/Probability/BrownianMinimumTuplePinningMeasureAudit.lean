@@ -1,0 +1,15 @@
+import PerronWright.Probability.BrownianMinimumTuplePinningMeasure
+
+/-! Exact public proof dependency audit. -/
+
+#print axioms PerronWright.BrownianMinimumTuplePinningMeasure.actualLaw
+#print axioms PerronWright.BrownianMinimumTuplePinningMeasure.actualLaw_isFinite
+#print axioms PerronWright.BrownianMinimumTuplePinningMeasure.referenceMeasure
+#print axioms PerronWright.BrownianMinimumTuplePinningMeasure.encode
+#print axioms PerronWright.BrownianMinimumTuplePinningMeasure.measurable_encode
+#print axioms PerronWright.BrownianMinimumTuplePinningMeasure.jointDensity
+#print axioms PerronWright.BrownianMinimumTuplePinningMeasure.measurable_jointDensity
+#print axioms PerronWright.BrownianMinimumTuplePinningMeasure.candidateLaw
+#print axioms PerronWright.BrownianMinimumTuplePinningMeasure.lintegral_candidateLaw
+#print axioms PerronWright.BrownianMinimumTuplePinningMeasure.actualLaw_eq_candidateLaw
+#print axioms PerronWright.BrownianMinimumTuplePinningMeasure.actual_pinned_weighted_borel_density

@@ -1,0 +1,9 @@
+import PerronWright.Probability.BrownianParabolicMinimumSplitLaw
+
+#print axioms PerronWright.BrownianParabolicMinimumSplitLaw.liftSplit
+#print axioms PerronWright.BrownianParabolicMinimumSplitLaw.measurable_liftSplit
+#print axioms PerronWright.BrownianParabolicMinimumSplitLaw.minimumPoint_wholeLift
+#print axioms PerronWright.BrownianParabolicMinimumSplitLaw.splitDensity
+#print axioms PerronWright.BrownianParabolicMinimumSplitLaw.measurable_splitDensity
+#print axioms PerronWright.BrownianParabolicMinimumSplitLaw.actual_parabolic_minimum_split_law
+#print axioms PerronWright.BrownianParabolicMinimumSplitLaw.actual_parabolic_minimum_split_lintegral

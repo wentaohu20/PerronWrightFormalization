@@ -1,0 +1,10 @@
+import PerronWright.Probability.ModelGraphUniformLocalBridge
+
+#print axioms PerronWright.ModelGraphUniformLocalBridge.finiteGraphSource
+#print axioms PerronWright.ModelGraphUniformLocalBridge.finite_hasUniformLocalLimit
+#print axioms PerronWright.ModelGraphUniformLocalBridge.finite_windowLaw_eq
+#print axioms PerronWright.ModelGraphUniformLocalBridge.finite_processLaw_eq
+#print axioms PerronWright.ModelGraphUniformLocalBridge.compactGraphSource
+#print axioms PerronWright.ModelGraphUniformLocalBridge.compact_hasUniformLocalLimit
+#print axioms PerronWright.ModelGraphUniformLocalBridge.compact_windowLaw_eq
+#print axioms PerronWright.ModelGraphUniformLocalBridge.compact_processLaw_eq

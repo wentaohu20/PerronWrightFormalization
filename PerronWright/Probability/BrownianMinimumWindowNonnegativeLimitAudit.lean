@@ -1,0 +1,12 @@
+import PerronWright.Probability.BrownianMinimumWindowNonnegativeLimit
+
+/-! Exact audit of the nonnegative actual minimum-window density limit. -/
+
+#print axioms PerronWright.BrownianMinimumWindowNonnegativeLimit.sourceTest
+#print axioms PerronWright.BrownianMinimumWindowNonnegativeLimit.measurable_sourceTest
+#print axioms PerronWright.BrownianMinimumWindowNonnegativeLimit.sourceFutureWindow_eq_ofReal
+#print axioms PerronWright.BrownianMinimumWindowNonnegativeLimit.integrable_windowLevelTest
+#print axioms PerronWright.BrownianMinimumWindowNonnegativeLimit.ofReal_levelWindowAverage_eq_source
+#print axioms PerronWright.BrownianMinimumWindowNonnegativeLimit.ofReal_integral_levelWindowAverage_eq_source
+#print axioms PerronWright.BrownianMinimumWindowNonnegativeLimit.actual_future_window_lintegral_limit
+#print axioms PerronWright.BrownianMinimumWindowNonnegativeLimit.actual_future_density_limit

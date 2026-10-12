@@ -1,0 +1,4 @@
+import PerronWright.Probability.BrownianParabolicFirstPassageGridStrongMarkov
+
+#print axioms PerronWright.BrownianParabolicFirstPassageGridStrongMarkov.parabolic_selected_restrict_jointLaw
+#print axioms PerronWright.BrownianParabolicFirstPassageGridStrongMarkov.parabolic_selected_jointLaw

@@ -1,0 +1,14 @@
+import PerronWright.Model.CountablePerronQuantities
+
+#print axioms PerronWright.CountableKernel.atomMass_hasSum
+#print axioms PerronWright.CountableKernel.actionCLM_apply_tsum
+#print axioms PerronWright.CountableKernel.norm_actionCLM_le
+#print axioms PerronWright.CountableKernel.isCompactOperator_actionCLM
+#print axioms PerronWright.CountableKernel.isSelfAdjoint_actionCLM
+#print axioms PerronWright.CountableKernel.actionCLM_strict_pos
+#print axioms PerronWright.CountableKernel.norm_eq_one_of_critical
+#print axioms PerronWright.CountableKernel.exists_positive_fixed
+#print axioms PerronWright.CountableKernel.eigenspace_one_finrank
+#print axioms PerronWright.CountableKernel.existsUnique_normalized_positive_fixed
+#print axioms PerronWright.CountableKernel.perronLaw_isProbability
+#print axioms PerronWright.CountableKernel.beta_pos

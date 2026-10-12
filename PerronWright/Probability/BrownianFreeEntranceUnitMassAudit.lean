@@ -1,0 +1,4 @@
+import PerronWright.Probability.BrownianFreeEntranceUnitMass
+
+#print axioms PerronWright.BrownianFreeEntranceUnitMass.lintegral_unit_entrance_mass
+#print axioms PerronWright.BrownianFreeEntranceUnitMass.freeEntranceLaw_unit_mass

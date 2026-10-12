@@ -1,0 +1,5 @@
+import PerronWright.Probability.BrownianParabolicMinimumSplitWindow
+
+#print axioms PerronWright.BrownianParabolicMinimumSplitWindow.ae_actual_minimum_geometry
+#print axioms PerronWright.BrownianParabolicMinimumSplitWindow.ae_actual_minimum_lt_start
+#print axioms PerronWright.BrownianParabolicMinimumSplitWindow.actual_parabolic_level_window_split_limit

@@ -1,0 +1,5 @@
+import PerronWright.Probability.BrownianCompletedExcursionCandidate
+
+#print axioms PerronWright.BrownianCompletedExcursionCandidate.candidateLaw
+#print axioms PerronWright.BrownianCompletedExcursionCandidate.candidateLaw_isProbability
+#print axioms PerronWright.BrownianCompletedExcursionCandidate.lintegral_candidateLaw

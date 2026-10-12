@@ -1,0 +1,9 @@
+import PerronWright.Probability.FiniteIrreducibleDeterministicResidualFactorization
+
+/-! # Axiom audit of the literal deterministic residual factorization -/
+
+#print axioms PerronWright.FiniteIrreducibleDeterministicResidualFactorization.targetSelectionRatio_eq_depletion_populationProduct
+#print axioms PerronWright.FiniteIrreducibleDeterministicResidualFactorization.degreeCorrection_typeCount_identity
+#print axioms PerronWright.FiniteIrreducibleDeterministicResidualFactorization.residual_exponent_eq_populationCorrection
+#print axioms PerronWright.FiniteIrreducibleDeterministicResidualFactorization.residual_eq_depletion_population_isolation_odds
+

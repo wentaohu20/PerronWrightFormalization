@@ -1,0 +1,14 @@
+import PerronWright.Probability.BrownianMinimumFutureCoordinates
+
+/-! Exact audit of literal residual observation coordinates and their actual entrance limit. -/
+
+#print axioms PerronWright.BrownianMinimumFutureCoordinates.residualSchedule
+#print axioms PerronWright.BrownianMinimumFutureCoordinates.residualSchedule_zero
+#print axioms PerronWright.BrownianMinimumFutureCoordinates.residualSchedule_succ
+#print axioms PerronWright.BrownianMinimumFutureCoordinates.residualSchedule_last
+#print axioms PerronWright.BrownianMinimumFutureCoordinates.residualSchedule_strictMono
+#print axioms PerronWright.BrownianMinimumFutureCoordinates.coordinateMap
+#print axioms PerronWright.BrownianMinimumFutureCoordinates.continuous_coordinateMap
+#print axioms PerronWright.BrownianMinimumFutureCoordinates.coordinateTest
+#print axioms PerronWright.BrownianMinimumFutureCoordinates.coordinateTest_minimumPoint
+#print axioms PerronWright.BrownianMinimumFutureCoordinates.actual_residual_coordinates_entrance_tendsto

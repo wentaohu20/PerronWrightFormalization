@@ -1,0 +1,4 @@
+import PerronWright.Probability.BrownianExcursionTupleDeletedHeadSource
+
+#print axioms PerronWright.BrownianExcursionTupleDeletedHeadSource.measurable_headTail_sourceSum
+#print axioms PerronWright.BrownianExcursionTupleDeletedHeadSource.actual_sourceSum_deleted_head_lintegral

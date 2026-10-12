@@ -1,0 +1,61 @@
+import PerronWright.Analysis.FiniteIrreducibleFieldPhysicalFold
+
+/-!
+# Audit of actual finite real-field radii and physical branch normalization
+
+All public declarations in this batch are checked below. The model tilt
+and literal spectral criticality are proved from the actual positive
+critical profile. The field series is the genuine labelled-tree series.
+Exact radii and physical fold identification here apply to small REAL
+fields (`star g = g`), not an entire complex-field ball. The activity
+window in the joint-chart overlap may depend on the field. No primitive,
+B2 or unproved nontrivial interface is inserted.
+-/
+
+#print axioms PerronWright.FiniteIrreducibleModel.eigenvalue_norm_le_one_of_positive_fixed_hilbert
+#print axioms PerronWright.FiniteIrreducibleModel.isCritical_of_positive_fixed_hilbert
+#print axioms PerronWright.FiniteIrreducibleModel.isCritical_of_positive_fixed_function
+#print axioms PerronWright.FiniteIrreducibleModel.irreducible_pos_smul
+#print axioms PerronWright.FiniteIrreducibleModel.tilted
+#print axioms PerronWright.FiniteIrreducibleModel.tilted_weight
+#print axioms PerronWright.FiniteIrreducibleModel.tilted_kernel
+#print axioms PerronWright.FiniteIrreducibleModel.tilted_meanMatrix_apply
+#print axioms PerronWright.FiniteIrreducibleModel.tilted_action
+#print axioms PerronWright.FiniteIrreducibleModel.tilted_isCritical_of_positive_fixed
+#print axioms PerronWright.FiniteIrreducibleModel.tilted_complexOperator
+#print axioms PerronWright.FiniteIrreducibleModel.fieldTreeMap
+#print axioms PerronWright.FiniteIrreducibleModel.fieldTreeMap_apply
+#print axioms PerronWright.FiniteIrreducibleModel.fieldTreeIter
+#print axioms PerronWright.FiniteIrreducibleModel.fieldTreeMap_conjugacy
+#print axioms PerronWright.FiniteIrreducibleModel.fieldTreeIter_conjugacy
+#print axioms PerronWright.FiniteIrreducibleModel.fieldTreeIter_least_fixed_of_positive_profile
+#print axioms PerronWright.FiniteIrreducibleModel.fieldTreeIter_critical_converges_of_positive_profile
+#print axioms PerronWright.FiniteIrreducibleModel.realPartMap
+#print axioms PerronWright.FiniteIrreducibleModel.complexify_realPartMap
+#print axioms PerronWright.FiniteIrreducibleModel.complexify_realPartMap_of_star
+#print axioms PerronWright.FiniteIrreducibleModel.complexify_fieldTreeMap
+#print axioms PerronWright.FiniteIrreducibleModel.realCriticalProfile
+#print axioms PerronWright.FiniteIrreducibleModel.real_critical_tilt_eventually
+#print axioms PerronWright.FiniteIrreducibleSeriesScaling.radius_range_equiv_eq
+#print axioms PerronWright.FiniteIrreducibleSeriesScaling.radius_comp_smul_id_eq
+#print axioms PerronWright.FiniteIrreducibleModel.positiveProfileUnit
+#print axioms PerronWright.FiniteIrreducibleModel.positiveProfileEquiv
+#print axioms PerronWright.FiniteIrreducibleModel.positiveProfileEquiv_apply
+#print axioms PerronWright.FiniteIrreducibleModel.fieldFMS
+#print axioms PerronWright.FiniteIrreducibleModel.treeResidual_positive_profile_conjugacy
+#print axioms PerronWright.FiniteIrreducibleModel.fieldFMS_eq_tilted
+#print axioms PerronWright.FiniteIrreducibleModel.fieldFMS_radius_eq_of_critical_profile
+#print axioms PerronWright.FiniteIrreducibleModel.fieldFMS_normalizedTerm
+#print axioms PerronWright.FiniteIrreducibleModel.fieldFMS_hasSum_normalized
+#print axioms PerronWright.FiniteIrreducibleModel.fieldFMS_sum_normalized
+#print axioms PerronWright.FiniteIrreducibleModel.fieldSeries_eq_least_fixedPoint
+#print axioms PerronWright.FiniteIrreducibleModel.fieldTreeIter_limit_near_critical_profile
+#print axioms PerronWright.FiniteIrreducibleModel.fieldFMS_radius_eq_critical_radius_real_eventually
+#print axioms PerronWright.FiniteIrreducibleModel.action_mono
+#print axioms PerronWright.FiniteIrreducibleModel.field_fixed_lt_positive_profile
+#print axioms PerronWright.FiniteIrreducibleModel.field_physical_perron_coordinate_negative
+#print axioms PerronWright.FiniteIrreducibleFieldPhysicalFold.fixed_on_centeredFoldCurve_eventually
+#print axioms PerronWright.FiniteIrreducibleFieldPhysicalFold.exists_joint_fold_identified_with_real_field_series
+#print axioms PerronWright.FiniteIrreducibleFieldPhysicalFold.real_field_least_branch_eventually
+#print axioms PerronWright.FiniteIrreducibleFieldPhysicalFold.exists_real_field_radius_and_joint_physical_fold
+

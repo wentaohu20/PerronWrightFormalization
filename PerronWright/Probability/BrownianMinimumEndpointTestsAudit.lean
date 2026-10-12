@@ -1,0 +1,11 @@
+import PerronWright.Probability.BrownianKilledUnshiftedEndpointEntrance
+import PerronWright.Probability.BrownianMinimumEndpointTests
+
+/-! Exact audit of actual unshifted endpoint entrance and literal minimum endpoint tests. -/
+
+#print axioms PerronWright.BrownianKilledUnshiftedEndpointEntrance.actual_normalized_survived_endpoint_test_tendsto
+#print axioms PerronWright.BrownianMinimumEndpointTests.endpointMap
+#print axioms PerronWright.BrownianMinimumEndpointTests.continuous_endpointMap
+#print axioms PerronWright.BrownianMinimumEndpointTests.endpointTest
+#print axioms PerronWright.BrownianMinimumEndpointTests.endpointTest_minimumPoint
+#print axioms PerronWright.BrownianMinimumEndpointTests.actual_minimum_endpoint_density_limit

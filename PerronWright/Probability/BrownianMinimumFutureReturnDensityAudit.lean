@@ -1,0 +1,7 @@
+import PerronWright.Probability.BrownianMinimumFutureReturnDensity
+
+#print axioms PerronWright.BrownianMinimumFutureReturnDensity.returnDensity
+#print axioms PerronWright.BrownianMinimumFutureReturnDensity.measurable_returnDensity
+#print axioms PerronWright.BrownianMinimumFutureReturnDensity.returnDensity_eq_rpow
+#print axioms PerronWright.BrownianMinimumFutureReturnDensity.actual_firstReturn_lintegral
+#print axioms PerronWright.BrownianMinimumFutureReturnDensity.actual_firstReturn_law

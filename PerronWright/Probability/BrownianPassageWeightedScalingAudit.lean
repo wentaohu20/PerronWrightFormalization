@@ -1,0 +1,11 @@
+import PerronWright.Probability.BrownianPassageWeightedScaling
+
+#print axioms PerronWright.BrownianPassageWeightedScaling.weight
+#print axioms PerronWright.BrownianPassageWeightedScaling.measurable_weight
+#print axioms PerronWright.BrownianPassageWeightedScaling.weightedLaw
+#print axioms PerronWright.BrownianPassageWeightedScaling.weightedLaw_mass
+#print axioms PerronWright.BrownianPassageWeightedScaling.lintegral_weightedLaw
+#print axioms PerronWright.BrownianPassageWeightedScaling.weight_sqrt_scaling
+#print axioms PerronWright.BrownianPassageWeightedScaling.lintegral_sqrt_scaling
+#print axioms PerronWright.BrownianPassageWeightedScaling.weightedLaw_sqrt_lintegral
+#print axioms PerronWright.BrownianPassageWeightedScaling.weighted_boundedContinuous_tendsto

@@ -1,0 +1,7 @@
+import PerronWright.Probability.BrownianMinimumTupleSmallTime
+
+#print axioms PerronWright.BrownianMinimumTupleSmallTime.levelDensity
+#print axioms PerronWright.BrownianMinimumTupleSmallTime.measurable_levelDensity
+#print axioms PerronWright.BrownianMinimumTupleSmallTime.levelDensity_eq_state_integral
+#print axioms PerronWright.BrownianMinimumTupleSmallTime.levelDensity_tendsto
+#print axioms PerronWright.BrownianMinimumTupleSmallTime.levelDensity_limit_ne_top

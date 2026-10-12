@@ -1,0 +1,3 @@
+import PerronWright.Probability.BrownianCompletedMarkedEntranceAmplitude
+
+#print axioms PerronWright.BrownianCompletedMarkedEntranceAmplitude.actual_complete_marked_entrance_amplitude

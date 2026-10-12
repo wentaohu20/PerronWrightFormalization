@@ -1,0 +1,4 @@
+import PerronWright.Probability.FactorialCellMomentRescaling
+
+#print axioms PerronWright.FactorialCellMomentRescaling.cellMomentMass_rescaling
+#print axioms PerronWright.FactorialCellMomentRescaling.cellMomentMass_starred_normalization

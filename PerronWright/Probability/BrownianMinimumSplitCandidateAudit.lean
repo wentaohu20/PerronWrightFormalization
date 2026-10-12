@@ -1,0 +1,10 @@
+import PerronWright.Probability.BrownianMinimumSplitCandidate
+
+#print axioms PerronWright.BrownianMinimumSplitCandidate.entranceCoefficient
+#print axioms PerronWright.BrownianMinimumSplitCandidate.sourcePastWeight
+#print axioms PerronWright.BrownianMinimumSplitCandidate.measurable_sourcePastWeight
+#print axioms PerronWright.BrownianMinimumSplitCandidate.sourcePoint
+#print axioms PerronWright.BrownianMinimumSplitCandidate.measurable_sourcePoint
+#print axioms PerronWright.BrownianMinimumSplitCandidate.candidateLaw
+#print axioms PerronWright.BrownianMinimumSplitCandidate.candidateLaw_isFinite
+#print axioms PerronWright.BrownianMinimumSplitCandidate.lintegral_candidateLaw

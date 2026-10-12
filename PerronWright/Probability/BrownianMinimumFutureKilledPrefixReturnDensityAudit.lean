@@ -1,0 +1,4 @@
+import PerronWright.Probability.BrownianMinimumFutureKilledPrefixReturnDensity
+
+#print axioms PerronWright.BrownianMinimumFutureKilledPrefixReturnDensity.actual_prefix_postUnit_return_lintegral
+#print axioms PerronWright.BrownianMinimumFutureKilledPrefixReturnDensity.actual_mixed_ordered_return_lintegral
