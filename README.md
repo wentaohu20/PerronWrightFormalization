@@ -6,6 +6,14 @@ The paper has **four main theorems, not 21**. A paper theorem may have several m
 
 The project pins **Lean / mathlib v4.33.1**. See [lean-toolchain](lean-toolchain), [lakefile.toml](lakefile.toml), and [lake-manifest.json](lake-manifest.json) for the toolchain and exact dependency commits. The linked Lean statements are authoritative for assumptions and quantifier order. See the [verification record](docs/VERIFICATION.md) for the scope of actual tests.
 
+## License
+
+Copyright 2026 PerronWrightFormalization contributors.
+
+The original Lean source code, verification scripts, and documentation in this repository are licensed under the [Apache License, Version 2.0](LICENSE) (SPDX: `Apache-2.0`). Reuse, modification, redistribution, and commercial use are permitted under its terms; derivative projects are not required to be open source. When redistributing, retain the required license and attribution notices and identify modified files.
+
+Third-party dependencies, including Lean and mathlib, retain their own licenses and notices. This repository license does not determine the separate publication license of the accompanying paper. No additional paper-citation requirement is imposed by this repository license.
+
 ## One-command build and dependency verification
 
 Install [Lean's Elan toolchain manager](https://lean-lang.org/install/) and ensure `lake` is on your `PATH`. Python, Node.js, and the GitHub CLI are not required.
@@ -228,12 +236,12 @@ PerronWright/Model/           Finite, compact, and countable models; Perron quan
 PerronWright/Analysis/        Analytic perturbation, implicit functions, folds, transfer
 PerronWright/Enumeration/     Graph decomposition, weighted enumeration, Wright constants
 PerronWright/Probability/     Actual graph laws, factorial moments, Brownian/process limits
-docs/                        Source indices and preserved development history
+docs/                        Source indices, verification record, and release history
 Verify.ps1 / verify.cmd       Windows build and theorem-dependency verification
 verify.sh                    Unix verification entry
 MainTheoremDependencies.lean  Inspector of checked theorem expressions
 ```
 
-Mathematical proof sources and the inspection program are separate. This repository cleanup does not change mathematical statements or proofs. Caches, scratch experiments, credentials, and local reports are excluded from Git. The original long README is preserved as [development history](docs/DEVELOPMENT_HISTORY.md), in its original language; historical progress reports and old interfaces do not replace the current source or indices.
+Mathematical proof sources and the inspection program are separate. Caches, scratch experiments, credentials, and local reports are excluded from Git. The [release history](docs/RELEASE_HISTORY.md) starts with the first public release; pre-publication development milestones are not separate public versions.
 
 When public declaration names change, update the paper-to-Lean mapping in `MainTheoremDependencies.lean`, this README, and the relevant indices, then rerun verification. Do not substitute old reports for a fresh build.

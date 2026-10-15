@@ -32,7 +32,7 @@ run_logged() {
 if [[ "${SKIP_CACHE:-0}" != 1 ]]; then
   run_logged 'Fetch pinned mathlib cache' .verification/cache.log lake exe cache get
 fi
-run_logged 'Build all project proof modules' .verification/build.log lake build PerronWright
+run_logged 'Build PerronWright library target' .verification/build.log lake build PerronWright
 rm -f .verification/main-theorem-dependencies.json .verification/main-theorem-axioms.txt
 run_logged 'Inspect Lean declarations and export dependencies' .verification/main-theorem-dependencies.log lake env lean MainTheoremDependencies.lean
 test -s .verification/main-theorem-dependencies.json

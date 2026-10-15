@@ -3,6 +3,7 @@
 !/.gitignore
 !/.gitattributes
 !/README.md
+!/LICENSE
 !/lean-toolchain
 !/lakefile.toml
 !/lake-manifest.json

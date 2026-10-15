@@ -64,7 +64,7 @@ try {
     if (!$SkipCache) {
         Invoke-Checked 'Fetch pinned mathlib cache' { lake exe cache get } (Join-Path $reports 'cache.log')
     }
-    Invoke-Checked 'Build all project proof modules' { & ./Build.ps1 PerronWright } (Join-Path $reports 'build.log')
+    Invoke-Checked 'Build PerronWright library target' { & ./Build.ps1 PerronWright } (Join-Path $reports 'build.log')
     # Never accept a stale report after a failed dependency traversal.
     $jsonPath = Join-Path $reports 'main-theorem-dependencies.json'
     $axiomsPath = Join-Path $reports 'main-theorem-axioms.txt'
