@@ -71,7 +71,7 @@ try {
     foreach ($path in @($jsonPath, $axiomsPath)) {
         if (Test-Path -LiteralPath $path) { Remove-Item -LiteralPath $path }
     }
-    Invoke-Checked 'Check the four main-theorem groups and export dependencies' {
+    Invoke-Checked 'Inspect Lean declarations and export dependencies' {
         lake env lean MainTheoremDependencies.lean
     } (Join-Path $reports 'main-theorem-dependencies.log')
     if (!(Test-Path -LiteralPath $jsonPath)) { throw 'Dependency report was not generated.' }
@@ -105,29 +105,36 @@ try {
             if ($axiom -notin $allowed) { throw "Nonstandard axiom $axiom in $($theorem.name)" }
         }
     }
-    # Print only the four paper groups, taking the union across their implementations.
-    $summary = @($report.paperMainTheorems | ForEach-Object {
-        $group = $_
-        $used = @($report.theorems | Where-Object {
-            $_.name -in @($group.declarations)
-        } | ForEach-Object { $_.axioms } | Sort-Object -Unique)
-        $actual = @($allowed | Where-Object { $_ -in $used })
-        "THEOREM $($group.number) AXIOMS: [$($actual -join ', ')]"
-    })
-    if (!(Test-Path -LiteralPath $axiomsPath)) { throw 'Main-theorem axiom summary was not generated.' }
-    $generated = @(Get-Content -Encoding UTF8 -LiteralPath $axiomsPath)
-    if (($generated -join "`n") -ne ($summary -join "`n")) {
-        throw 'Main-theorem axiom summary disagrees with the checked dependency report.'
+    if (!(Test-Path -LiteralPath $axiomsPath)) { throw 'Native Lean axiom output was not generated.' }
+    $nativeOutput = [IO.File]::ReadAllText($axiomsPath, $utf8)
+    $printed = [regex]::Matches($nativeOutput,
+        "'(?<name>[^']+)' (?:depends on axioms:\s*\[(?<axioms>[^\]]*)\]|does not depend on any axioms)")
+    if ($printed.Count -ne $implementationNames.Count) {
+        throw 'Native Lean output must cover each distinct main-theorem implementation.'
+    }
+    $printedNames = @{}
+    foreach ($entry in $printed) {
+        $name = $entry.Groups['name'].Value
+        if ($name -notin $implementationNames -or $printedNames.ContainsKey($name)) {
+            throw "Unexpected or duplicate native Lean axiom output: $name"
+        }
+        $printedNames[$name] = $true
+        $actual = @($entry.Groups['axioms'].Value -split ',' |
+            ForEach-Object { $_.Trim() } | Where-Object { $_ } | Sort-Object)
+        $expected = @($report.theorems | Where-Object { $_.name -eq $name } |
+            ForEach-Object { $_.axioms } | Sort-Object)
+        if (($actual -join ',') -ne ($expected -join ',')) {
+            throw "Native Lean axiom output disagrees with the dependency report: $name"
+        }
     }
     if ($FullAudit) {
         foreach ($file in @('Audit.lean','ProbabilityAudit.lean','Chapter3FiniteProcessSpatialBridgeAudit.lean')) {
             Invoke-Checked "Full axiom audit: $file" { lake env lean $file } (Join-Path $reports "$file.log")
         }
     }
-    Write-Host "`nMain-theorem axiom dependencies:"
-    $summary | ForEach-Object { Write-Host $_ }
-    Write-Host "`nVERIFIED: paper Theorems 3.6, 3.8, 3.9 and 3.10; only standard Lean axioms."
-    Write-Host "Reports: $reports"
+    Write-Host ''
+    [Console]::Write($nativeOutput)
+    Write-Host "`nVerification completed. Reports: $reports"
     exit 0
 } catch {
     Write-Host "`nVERIFICATION FAILED: $($_.Exception.Message)" -ForegroundColor Red

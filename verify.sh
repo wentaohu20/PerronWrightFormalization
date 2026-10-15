@@ -34,18 +34,16 @@ if [[ "${SKIP_CACHE:-0}" != 1 ]]; then
 fi
 run_logged 'Build all project proof modules' .verification/build.log lake build PerronWright
 rm -f .verification/main-theorem-dependencies.json .verification/main-theorem-axioms.txt
-run_logged 'Check the four main-theorem groups and export dependencies' .verification/main-theorem-dependencies.log lake env lean MainTheoremDependencies.lean
+run_logged 'Inspect Lean declarations and export dependencies' .verification/main-theorem-dependencies.log lake env lean MainTheoremDependencies.lean
 test -s .verification/main-theorem-dependencies.json
 grep -q '^DEPENDENCY AUDIT PASSED: 4 paper main theorems; 21 audited Lean declarations (17 implementation + 4 supporting);' .verification/main-theorem-dependencies.log
 test -s .verification/main-theorem-axioms.txt
-test "$(wc -l < .verification/main-theorem-axioms.txt)" -eq 4
-numbers=$(sed -n 's/^THEOREM \(3\.[0-9]*\) AXIOMS: \[.*\]$/\1/p' .verification/main-theorem-axioms.txt)
-test "$numbers" = $'3.6\n3.8\n3.9\n3.10'
+test "$(grep -Ec "^'PerronWright\.[^']+' (depends on axioms:|does not depend on any axioms)" .verification/main-theorem-axioms.txt)" -eq 17
 if [[ "${FULL_AUDIT:-0}" == 1 ]]; then
   for audit in Audit.lean ProbabilityAudit.lean Chapter3FiniteProcessSpatialBridgeAudit.lean; do
     run_logged "Full axiom audit: $audit" ".verification/$audit.log" lake env lean "$audit"
   done
 fi
-printf '\nMain-theorem axiom dependencies:\n'
-while IFS= read -r line; do printf '%s\n' "$line"; done < .verification/main-theorem-axioms.txt
-printf '\nVERIFIED: paper Theorems 3.6, 3.8, 3.9 and 3.10; only standard Lean axioms. Reports: .verification/\n'
+printf '\n'
+cat .verification/main-theorem-axioms.txt
+printf '\nVerification completed. Reports: .verification/\n'

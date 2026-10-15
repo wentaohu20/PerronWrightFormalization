@@ -162,16 +162,8 @@ def theoremRecord (env : Environment) (n : Name) : CommandElabM TheoremRecord :=
 run_cmd do
   let env := (← getEnv).setExporting false
   let mut results : Array TheoremRecord := #[]
-  for group in paperMainTheorems do
-    logInfo m!"PAPER MAIN THEOREM {group.number}: {group.title}\nLEAN IMPLEMENTATIONS: {group.declarations}"
-  logInfo m!"AUDIT COVERAGE: {paperMainTheorems.size} paper main theorems; {mainDeclarations.size} distinct implementation declarations; {supportingTheorems.size} supporting declarations."
   for n in auditTargets do
     let r ← theoremRecord env n
-    let some ci := env.checked.get.find? n | throwError "Missing theorem: {n}"
-    let some proof := ci.value? (allowOpaque := true) | throwError "Missing proof: {n}"
-    let directTheorems := (sorted proof.getUsedConstantsAsSet.toArray).filter fun d =>
-      ((env.checked.get.find? d).map kind == some "theorem")
-    logInfo m!"LEAN DECLARATION: {r.name}\nROLE: {r.role}; PAPER THEOREMS: {r.paperTheorems}\nDIRECT PROOF THEOREMS: {directTheorems}\nTRANSITIVE PROJECT THEOREMS: {r.projectTheorems.size} (complete list and graph in the JSON report)\nAXIOMS: {r.axioms}"
     results := results.push r
   let union := closure env auditTargets
   let declarations ← union.mapM (declarationRecord env)
@@ -194,19 +186,16 @@ run_cmd do
   ]
   liftIO <| IO.FS.createDirAll ".verification"
   liftIO <| IO.FS.writeFile ".verification/main-theorem-dependencies.json" report.compress
-  -- A compact, ASCII-only console summary; detailed records remain in the JSON/log.
-  let axiomOrder := #["propext", "Classical.choice", "Quot.sound"]
-  let mut axiomSummary := ""
-  for group in paperMainTheorems do
-    let mut used : Array String := #[]
-    for r in results do
-      if group.declarations.any (fun n => n.toString == r.name) then
-        for ax in r.axioms do
-          if !used.contains ax then used := used.push ax
-    let actual := axiomOrder.filter (fun ax => used.contains ax)
-    axiomSummary := axiomSummary ++
-      s!"THEOREM {group.number} AXIOMS: [{String.intercalate ", " actual.toList}]\n"
-  liftIO <| IO.FS.writeFile ".verification/main-theorem-axioms.txt" axiomSummary
+  -- Invoke Lean's own command; preserve each complete message without regrouping
+  -- declarations, renaming them, or reconstructing the axiom list ourselves.
+  let start := (← get).messages.toArray.size
+  for n in mainDeclarations do
+    elabCommand (← `(#print axioms $(mkIdent n)))
+  let messages := (← get).messages.toArray
+  let mut nativeOutput := ""
+  for message in messages.extract start messages.size do
+    nativeOutput := nativeOutput ++ (← message.data.toString) ++ "\n"
+  liftIO <| IO.FS.writeFile ".verification/main-theorem-axioms.txt" nativeOutput
   let mut md := "# Definitions reachable from the four paper main theorems and their supporting results\n\n"
   md := md ++ "Generated from checked Lean expressions by `MainTheoremDependencies.lean`.\n"
   md := md ++ "Paper main theorems: 3.6, 3.8, 3.9 and 3.10; 17 distinct implementation declarations and four supporting declarations.\n"
